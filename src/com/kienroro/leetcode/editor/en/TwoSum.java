@@ -49,48 +49,20 @@
 
 package com.kienroro.leetcode.editor.en;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.defaultArgCases;
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.run;
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.stringify;
-
 public class TwoSum {
-    private static final String DEFAULT_INPUT = """
-              [2,7,11,15]
-            9
-            [3,2,4]
-            6
-            [3,3]
-            6
-            """;
-
     public static void main(String[] args) {
-        List<String[]> cases = args.length == 0
-                ? defaultArgCases(new TwoSum().new Solution(), DEFAULT_INPUT)
-                : Collections.singletonList(args);
+        TwoSum outer = new TwoSum();
+        Solution solution = outer.new Solution();
 
-        if (cases.isEmpty()) {
-            System.out.println("No local testcase provided.");
-            return;
-        }
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] result = solution.twoSum(nums, target);
 
-        for (int i = 0; i < cases.size(); i++) {
-            String[] rawArgs = cases.get(i);
-            Solution solution = new TwoSum().new Solution();
-
-            try {
-                Object result = run(solution, rawArgs);
-                String label = cases.size() == 1 ? "result" : "case " + (i + 1);
-                System.out.println(label + " = " + stringify(result));
-            } catch (RuntimeException e) {
-                System.err.println("rawArgs = " + java.util.Arrays.toString(rawArgs));
-                throw e;
-            }
-        }
+        System.out.println(Arrays.toString(result));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -106,7 +78,6 @@ public class TwoSum {
                 }
             }
             return null;
-
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
