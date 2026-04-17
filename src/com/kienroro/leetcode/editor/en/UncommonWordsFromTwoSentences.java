@@ -43,7 +43,8 @@
 
 
 package com.kienroro.leetcode.editor.en;
-import java.util.Arrays;
+
+import java.util.*;
 
 public class UncommonWordsFromTwoSentences {
     public static void main(String[] args) {
@@ -58,11 +59,29 @@ public class UncommonWordsFromTwoSentences {
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public String[] uncommonFromSentences(String s1, String s2) {
-        return null;
+    class Solution {
+        public String[] uncommonFromSentences(String s1, String s2) {
+            Map<String, Integer> map = new HashMap<>();
+            String[] words1 = s1.split(" ");
+            String[] words2 = s2.split(" ");
+            countWords(map, words1);
+            countWords(map, words2);
+            List<String> result = new ArrayList<>();
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+                if (entry.getValue() == 1) {
+                    result.add(entry.getKey());
+                }
+            }
+
+            return result.toArray(new String[0]);
+        }
+
+        public void countWords(Map<String, Integer> map, String[] words) {
+            for (String word : words) {
+                map.merge(word, 1, Integer::sum);
+            }
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
