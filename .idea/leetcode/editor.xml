@@ -201,6 +201,17 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/com/kienroro/leetcode/editor/en/UncommonWordsFromTwoSentences.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/com/kienroro/leetcode/editor/en/doc/content/UncommonWordsFromTwoSentences.md" />
+              <option name="frontendQuestionId" value="leetcode.com884" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="$PROJECT_DIR$/src/com/kienroro/leetcode/editor/en/UncommonWordsFromTwoSentences.java" />
+              <option name="titleSlug" value="uncommon-words-from-two-sentences" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/com/kienroro/leetcode/editor/en/UniqueMorseCodeWords.java">
           <value>
             <LeetcodeEditor>

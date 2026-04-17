@@ -101,7 +101,7 @@ public class TwoSum {
                 int numNeed = target - nums[i];
                 if (map.containsKey(numNeed)) {
                     return new int[]{map.get(numNeed), i};
-                }else{
+                } else {
                     map.put(nums[i], i);
                 }
             }
