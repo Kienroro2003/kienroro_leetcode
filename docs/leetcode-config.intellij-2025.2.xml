@@ -1,0 +1,23 @@
+<application>
+  <component name="PersistentConfig">
+    <option name="initConfig">
+      <Config>
+        <option name="codeType" value="Java" />
+        <option name="customCode" value="true" />
+        <option name="customFileName" value="$!velocityTool.camelCaseName(${question.titleSlug})" />
+        <option name="customTemplate" value="${question.content}&#10;&#10;package com.kienroro.leetcode.editor.en;&#10;&#10;import java.util.Collections;&#10;import java.util.List;&#10;&#10;import static com.kienroro.leetcode.editor.util.LeetCodeDebug.defaultArgCases;&#10;import static com.kienroro.leetcode.editor.util.LeetCodeDebug.run;&#10;import static com.kienroro.leetcode.editor.util.LeetCodeDebug.stringify;&#10;&#10;public class $!velocityTool.camelCaseName(${question.titleSlug}) {&#10;    private static final String DEFAULT_INPUT = &quot;&quot;&quot;&#10;${question.exampleTestcases}&#10;&quot;&quot;&quot;;&#10;&#10;    public static void main(String[] args) {&#10;        List&lt;String[]&gt; cases = args.length == 0&#10;                ? defaultArgCases(new $!velocityTool.camelCaseName(${question.titleSlug})().new Solution(), DEFAULT_INPUT)&#10;                : Collections.singletonList(args);&#10;&#10;        if (cases.isEmpty()) {&#10;            System.out.println(&quot;No local testcase provided.&quot;);&#10;            return;&#10;        }&#10;&#10;        for (int i = 0; i &lt; cases.size(); i++) {&#10;            String[] rawArgs = cases.get(i);&#10;            Solution solution = new $!velocityTool.camelCaseName(${question.titleSlug})().new Solution();&#10;&#10;            try {&#10;                Object result = run(solution, rawArgs);&#10;                String label = cases.size() == 1 ? &quot;result&quot; : &quot;case &quot; + (i + 1);&#10;                System.out.println(label + &quot; = &quot; + stringify(result));&#10;            } catch (RuntimeException e) {&#10;                System.err.println(&quot;rawArgs = &quot; + java.util.Arrays.toString(rawArgs));&#10;                throw e;&#10;            }&#10;        }&#10;    }&#10;&#10;    ${question.code}&#10;}" />
+        <option name="filePath" value="$USER_HOME$/Downloads/projects/LeetCode/src/com/kienroro" />
+        <option name="id" value="96521769851148666" />
+        <option name="levelColour" value="#5cb85c;#f0ad4e;#d9534f;" />
+        <option name="loginName" value="kienroro" />
+        <option name="navigatorName" value="page" />
+        <option name="pluginVersion" value="8.16" />
+        <option name="url" value="leetcode.com" />
+        <option name="userCookie">
+          <map />
+        </option>
+        <option name="version" value="3" />
+      </Config>
+    </option>
+  </component>
+</application>

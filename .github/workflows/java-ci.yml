@@ -1,0 +1,33 @@
+name: Java CI
+
+on:
+  push:
+    paths:
+      - "src/**/*.java"
+      - ".github/workflows/java-ci.yml"
+  pull_request:
+    paths:
+      - "src/**/*.java"
+      - ".github/workflows/java-ci.yml"
+  workflow_dispatch:
+
+jobs:
+  compile:
+    name: Compile Java sources
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Compile all Java sources
+        run: |
+          rm -rf out/ci
+          mkdir -p out/ci
+          find src -type f -name '*.java' -print0 | xargs -0 javac -d out/ci
