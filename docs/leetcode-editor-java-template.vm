@@ -2,41 +2,17 @@ ${question.content}
 
 package com.kienroro.leetcode.editor.en;
 
-import java.util.Collections;
-import java.util.List;
-
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.defaultArgCases;
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.run;
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.stringify;
-
 public class $!velocityTool.camelCaseName(${question.titleSlug}) {
-    private static final String DEFAULT_INPUT = """
-${question.exampleTestcases}
-""";
-
     public static void main(String[] args) {
-        List<String[]> cases = args.length == 0
-                ? defaultArgCases(new $!velocityTool.camelCaseName(${question.titleSlug})().new Solution(), DEFAULT_INPUT)
-                : Collections.singletonList(args);
+        $!velocityTool.camelCaseName(${question.titleSlug}) outer = new $!velocityTool.camelCaseName(${question.titleSlug})();
+        Solution solution = outer.new Solution();
 
-        if (cases.isEmpty()) {
-            System.out.println("No local testcase provided.");
-            return;
-        }
-
-        for (int i = 0; i < cases.size(); i++) {
-            String[] rawArgs = cases.get(i);
-            Solution solution = new $!velocityTool.camelCaseName(${question.titleSlug})().new Solution();
-
-            try {
-                Object result = run(solution, rawArgs);
-                String label = cases.size() == 1 ? "result" : "case " + (i + 1);
-                System.out.println(label + " = " + stringify(result));
-            } catch (RuntimeException e) {
-                System.err.println("rawArgs = " + java.util.Arrays.toString(rawArgs));
-                throw e;
-            }
-        }
+        // TODO: Setup local test data here.
+        // Example:
+        // int[] nums = {2, 7, 11, 15};
+        // int target = 9;
+        // int[] result = solution.twoSum(nums, target);
+        // System.out.println(java.util.Arrays.toString(result));
     }
 
     ${question.code}
