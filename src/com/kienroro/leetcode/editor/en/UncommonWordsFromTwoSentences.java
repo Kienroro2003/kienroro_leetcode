@@ -43,45 +43,18 @@
 
 
 package com.kienroro.leetcode.editor.en;
-
-import java.util.Collections;
-import java.util.List;
-
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.defaultArgCases;
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.run;
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.stringify;
+import java.util.Arrays;
 
 public class UncommonWordsFromTwoSentences {
-    private static final String DEFAULT_INPUT = """
-"this apple is sweet"
-"this apple is sour"
-"apple apple"
-"banana"
-""";
-
     public static void main(String[] args) {
-        List<String[]> cases = args.length == 0
-                ? defaultArgCases(new UncommonWordsFromTwoSentences().new Solution(), DEFAULT_INPUT)
-                : Collections.singletonList(args);
+        UncommonWordsFromTwoSentences outer = new UncommonWordsFromTwoSentences();
+        Solution solution = outer.new Solution();
 
-        if (cases.isEmpty()) {
-            System.out.println("No local testcase provided.");
-            return;
-        }
+        String s1 = "this apple is sweet";
+        String s2 = "this apple is sour";
+        String[] result = solution.uncommonFromSentences(s1, s2);
 
-        for (int i = 0; i < cases.size(); i++) {
-            String[] rawArgs = cases.get(i);
-            Solution solution = new UncommonWordsFromTwoSentences().new Solution();
-
-            try {
-                Object result = run(solution, rawArgs);
-                String label = cases.size() == 1 ? "result" : "case " + (i + 1);
-                System.out.println(label + " = " + stringify(result));
-            } catch (RuntimeException e) {
-                System.err.println("rawArgs = " + java.util.Arrays.toString(rawArgs));
-                throw e;
-            }
-        }
+        System.out.println(Arrays.toString(result));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)

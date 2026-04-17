@@ -42,43 +42,15 @@
 
 package com.kienroro.leetcode.editor.en;
 
-import java.util.Collections;
-import java.util.List;
-
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.defaultArgCases;
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.run;
-import static com.kienroro.leetcode.editor.util.LeetCodeDebug.stringify;
-
 public class LongestSubstringWithoutRepeatingCharacters {
-    private static final String DEFAULT_INPUT = """
-"abcabcbb"
-"bbbbb"
-"pwwkew"
-""";
-
     public static void main(String[] args) {
-        List<String[]> cases = args.length == 0
-                ? defaultArgCases(new LongestSubstringWithoutRepeatingCharacters().new Solution(), DEFAULT_INPUT)
-                : Collections.singletonList(args);
+        LongestSubstringWithoutRepeatingCharacters outer = new LongestSubstringWithoutRepeatingCharacters();
+        Solution solution = outer.new Solution();
 
-        if (cases.isEmpty()) {
-            System.out.println("No local testcase provided.");
-            return;
-        }
+        String s = "abcabcbb";
+        int result = solution.lengthOfLongestSubstring(s);
 
-        for (int i = 0; i < cases.size(); i++) {
-            String[] rawArgs = cases.get(i);
-            Solution solution = new LongestSubstringWithoutRepeatingCharacters().new Solution();
-
-            try {
-                Object result = run(solution, rawArgs);
-                String label = cases.size() == 1 ? "result" : "case " + (i + 1);
-                System.out.println(label + " = " + stringify(result));
-            } catch (RuntimeException e) {
-                System.err.println("rawArgs = " + java.util.Arrays.toString(rawArgs));
-                throw e;
-            }
-        }
+        System.out.println(result);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
