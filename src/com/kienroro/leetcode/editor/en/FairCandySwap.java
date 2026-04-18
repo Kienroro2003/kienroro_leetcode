@@ -50,25 +50,35 @@
 
 package com.kienroro.leetcode.editor.en;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 public class FairCandySwap {
     public static void main(String[] args) {
         FairCandySwap outer = new FairCandySwap();
         Solution solution = outer.new Solution();
 
         // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(Arrays.toString(solution.fairCandySwap(new int[]{1, 1}, new int[]{2, 2})));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
-        
+    class Solution {
+        public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
+            int sumAlice = Arrays.stream(aliceSizes).sum();
+            int sumBob = Arrays.stream(bobSizes).sum();
+            int diff = (sumBob - sumAlice) / 2;
+            Set<Integer> bobSet = Arrays.stream(bobSizes).boxed().collect(Collectors.toSet());
+            for (int i = 0; i < aliceSizes.length; i++) {
+                if (bobSet.contains(diff + aliceSizes[i])) {
+                    return new int[]{aliceSizes[i], diff + aliceSizes[i]};
+                }
+            }
+            throw new IllegalArgumentException("No candy swap");
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
