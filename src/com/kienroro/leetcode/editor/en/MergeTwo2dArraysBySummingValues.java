@@ -61,8 +61,9 @@
 
 package com.kienroro.leetcode.editor.en;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MergeTwo2dArraysBySummingValues {
     public static void main(String[] args) {
@@ -70,33 +71,45 @@ public class MergeTwo2dArraysBySummingValues {
         Solution solution = outer.new Solution();
 
         // TODO: Setup local test data here.
-        int[][] nums1 = new int[][]{{10, 2}, {1, 2}, {2, 3}, {4, 5}};
-        int[][] nums2 = new int[][]{{1, 4}, {3, 2}, {4, 1}};
+        int[][] nums1 = new int[][]{{1, 2}, {2, 3}, {4, 5}};
+        int[][] nums2 = new int[][]{{1, 4}, {3, 2}, {4, 1}, {5, 5}};
         System.out.println(Arrays.deepToString(solution.mergeArrays(nums1, nums2)));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int[][] mergeArrays(int[][] nums1, int[][] nums2) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums1.length; i++) {
-            map.merge(nums1[i][0], nums1[i][1],  Integer::sum);
-        }
+    class Solution {
+        public int[][] mergeArrays(int[][] nums1, int[][] nums2) {
+            List<int[]> merged = new ArrayList<>();
+            int i = 0;
+            int j = 0;
 
-        for (int i = 0; i < nums2.length; i++) {
-            map.merge(nums2[i][0], nums2[i][1], Integer::sum);
+            while (i < nums1.length && j < nums2.length) {
+                if (nums1[i][0] == nums2[j][0]) {
+                    merged.add(new int[]{nums1[i][0], nums1[i][1] + nums2[j][1]});
+                    i++;
+                    j++;
+                } else if (nums1[i][0] < nums2[j][0]) {
+                    merged.add(new int[]{nums1[i][0], nums1[i][1]});
+                    i++;
+                } else {
+                    merged.add(new int[]{nums2[j][0], nums2[j][1]});
+                    j++;
+                }
+            }
+
+            while (i < nums1.length) {
+                merged.add(new int[]{nums1[i][0], nums1[i][1]});
+                i++;
+            }
+
+            while (j < nums2.length) {
+                merged.add(new int[]{nums2[j][0], nums2[j][1]});
+                j++;
+            }
+
+            return merged.toArray(new int[merged.size()][2]);
         }
-        int[][] result = new int[map.size()][2];
-        List<Integer> list = new ArrayList<>(map.keySet());
-        list.sort(Integer::compareTo);
-        int i = 0;
-        for (int num : list) {
-            result[i++] = new int[]{num, map.get(num)};
-        }
-        return result;
-        
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
