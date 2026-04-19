@@ -68,20 +68,12 @@
 
 package com.kienroro.leetcode.editor.en;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class NumberOfStudentsUnableToEatLunch {
     public static void main(String[] args) {
         NumberOfStudentsUnableToEatLunch outer = new NumberOfStudentsUnableToEatLunch();
         Solution solution = outer.new Solution();
 
         // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
         System.out.println(solution.countStudents(new int[]{1,1,0,0}, new int[]{0,1,0,1}));
         System.out.println(solution.countStudents(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1}));
     }
@@ -89,35 +81,19 @@ public class NumberOfStudentsUnableToEatLunch {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int countStudents(int[] students, int[] sandwiches) {
-            int countStudentCircular = 0;
-            int countStudentSquare = 0;
-            for (int i = 0; i < students.length; i++) {
-                if (students[i] == 0)
-                    countStudentCircular++;
-                else countStudentSquare++;
+            int[] counts = new int[2];
+            for (int student : students) {
+                counts[student]++;
             }
 
-            int top = 0;
-
-            while (countStudentSquare != 0 || countStudentCircular != 0) {
-                if (sandwiches[top] == 0 && countStudentCircular > 0) {
-                    countStudentCircular--;
-                    top++;
-                    continue;
+            for (int sandwich : sandwiches) {
+                if (counts[sandwich] == 0) {
+                    return counts[0] + counts[1];
                 }
-                if (sandwiches[top] == 1 && countStudentSquare > 0) {
-                    countStudentSquare--;
-                    top++;
-                    continue;
-                }
-                if ((sandwiches[top] == 0 && countStudentCircular == 0) || (sandwiches[top] == 1 && countStudentSquare == 0)) {
-                    return Math.max(countStudentSquare, countStudentCircular);
-                }
-
+                counts[sandwich]--;
             }
 
             return 0;
-
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
