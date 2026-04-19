@@ -54,25 +54,35 @@
 
 package com.kienroro.leetcode.editor.en;
 
+import java.util.Arrays;
+
 public class FinalPricesWithASpecialDiscountInAShop {
     public static void main(String[] args) {
         FinalPricesWithASpecialDiscountInAShop outer = new FinalPricesWithASpecialDiscountInAShop();
         Solution solution = outer.new Solution();
 
         // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(Arrays.toString(solution.finalPrices(new int[]{8, 4, 6, 2, 3})));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int[] finalPrices(int[] prices) {
-        
+    class Solution {
+        public int[] finalPrices(int[] prices) {
+            int[] res = Arrays.copyOf(prices, prices.length);
+            for (int i = 0; i < prices.length - 1; i++) {
+                res[i] = prices[i];
+                for (int j = i + 1; j < prices.length; j++) {
+                    if (prices[i] > prices[j]) {
+                        res[i] = prices[i] - prices[j];
+                        break;
+                    }
+                }
+            }
+            res[prices.length - 1] = prices[prices.length - 1];
+            return res;
+
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
