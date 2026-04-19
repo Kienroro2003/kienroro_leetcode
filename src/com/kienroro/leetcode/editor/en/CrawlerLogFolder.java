@@ -80,17 +80,16 @@ public class CrawlerLogFolder {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int minOperations(String[] logs) {
-            Deque<String> stack = new ArrayDeque<>();
+            int depth = 0;
             for (String log : logs) {
-                if (!log.equals("./") && !log.equals("../")) {
-                    stack.push(log);
-                    continue;
+                if (!log.equals("../") && !log.equals("./")) {
+                    depth++;
                 }
-                if (!stack.isEmpty() && log.equals("../")){
-                    stack.pop();
+                if (depth != 0 && log.equals("../")) {
+                    depth--;
                 }
             }
-            return stack.size();
+            return depth;
 
         }
     }
