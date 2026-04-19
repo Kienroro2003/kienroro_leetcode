@@ -44,9 +44,7 @@
 
 package com.kienroro.leetcode.editor.en;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class MinimumStringLengthAfterRemovingSubstrings {
     public static void main(String[] args) {
@@ -54,30 +52,24 @@ public class MinimumStringLengthAfterRemovingSubstrings {
         Solution solution = outer.new Solution();
 
         // TODO: Setup local test data here.
-//        System.out.println(solution.minLength("ABFCACDB"));
-//        System.out.println(solution.minLength("ACBBD"));
+        System.out.println(solution.minLength("ABFCACDB"));
+        System.out.println(solution.minLength("ACBBD"));
         System.out.println(solution.minLength("BJKDKABJ"));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int minLength(String s) {
-            List<Integer> list = new ArrayList<>(s.chars().boxed().toList());
-            for (int i = 0; i < list.size() - 1; ) {
-                if ((list.get(i + 1).equals((int) 'B') && list.get(i).equals((int) 'A')) || (list.get(i + 1).equals((int) 'D') && list.get(i).equals((int) 'C'))) {
-                    list.remove(i);
-                    list.remove(i);
-                    if (i != 0) {
-                        i--;
-                    }
+            Deque<Character> stack = new ArrayDeque<>();
+            for (char c : s.toCharArray()) {
+                if (!stack.isEmpty() && ((c == 'B' && stack.peek() == 'A') || (c == 'D' && stack.peek() == 'C'))){
+                    stack.pop();
                     continue;
                 }
-                i++;
-
+                stack.push(c);
             }
-            return list.size();
 
-
+            return stack.size();
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
