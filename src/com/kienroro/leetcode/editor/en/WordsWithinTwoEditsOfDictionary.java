@@ -31,24 +31,61 @@
 
 package com.kienroro.leetcode.editor.en;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WordsWithinTwoEditsOfDictionary {
     public static void main(String[] args) {
         WordsWithinTwoEditsOfDictionary outer = new WordsWithinTwoEditsOfDictionary();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(solution.twoEditWords(
+                new String[] { "word", "note", "ants", "wood" },
+                new String[] { "wood", "joke", "moat" })); // expected: [word, note, wood]
+
+        System.out.println(solution.twoEditWords(
+                new String[] { "yes" },
+                new String[] { "not" })); // expected: []
+
+        System.out.println(solution.twoEditWords(
+                new String[] { "abc", "abd", "xyz" },
+                new String[] { "abc" })); // expected: [abc, abd]
+
+        System.out.println(solution.twoEditWords(
+                new String[] { "a", "b", "c" },
+                new String[] { "b" })); // expected: [a, b, c]
+
+        System.out.println(solution.twoEditWords(
+                new String[] { "abzz", "xbcy", "zzzz" },
+                new String[] { "abcd" })); // expected: [abzz, xbcy]
+
+        System.out.println(solution.twoEditWords(
+                new String[] { "word", "word", "ants" },
+                new String[] { "wood" })); // expected: [word, word]
     }
 
-    //leetcode submit region begin(Prohibit modification and deletion)
+    // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public List<String> twoEditWords(String[] queries, String[] dictionary) {
-    
+            List<String> res = new ArrayList<>();
+            for (String query : queries) {
+                for (String word : dictionary) {
+                    int maxEdit = 2;
+                    for (int i = 0; i < query.length(); i++) {
+                        if (query.charAt(i) != word.charAt(i)) {
+                            maxEdit--;
+                        }
+                    }
+                    if (maxEdit >= 0) {
+                        res.add(query);
+                        break;
+                    }
+                }
+            }
+
+            return res;
+
         }
     }
-    //leetcode submit region end(Prohibit modification and deletion)
+    // leetcode submit region end(Prohibit modification and deletion)
 }
