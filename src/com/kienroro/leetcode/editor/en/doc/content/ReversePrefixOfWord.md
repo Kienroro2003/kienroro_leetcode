@@ -1,46 +1,44 @@
-<p>Given a <strong>0-indexed</strong> string <code>word</code> and a character <code>ch</code>, <strong>reverse</strong> the segment of <code>word</code> that starts at index <code>0</code> and ends at the index of the <strong>first occurrence</strong> of <code>ch</code> (<strong>inclusive</strong>). If the character <code>ch</code> does not exist in <code>word</code>, do nothing.</p>
+Given a **0-indexed** string `word` and a character `ch`, **reverse** the segment of `word` that starts at index `0` and ends at the index of the **first occurrence** of `ch` (**inclusive**). If the character `ch` does not exist in `word`, do nothing.
 
-<ul> 
- <li>For example, if <code>word = "abcdefd"</code> and <code>ch = "d"</code>, then you should <strong>reverse</strong> the segment that starts at <code>0</code> and ends at <code>3</code> (<strong>inclusive</strong>). The resulting string will be <code>"<u>dcba</u>efd"</code>.</li> 
-</ul>
+- For example, if `word = "abcdefd"` and `ch = "d"`, then you should **reverse** the segment that starts at `0` and ends at `3` (**inclusive**). The resulting string will be `"dcbaefd"`.
 
-<p>Return <em>the resulting string</em>.</p>
+Return *the resulting string*.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<pre>
-<strong>Input:</strong> word = "<u>abcd</u>efd", ch = "d"
-<strong>Output:</strong> "<u>dcba</u>efd"
-<strong>Explanation:</strong>&nbsp;The first occurrence of "d" is at index 3. 
+```
+Input: word = "abcdefd", ch = "d"
+Output: "dcbaefd"
+Explanation: The first occurrence of "d" is at index 3.
 Reverse the part of word from 0 to 3 (inclusive), the resulting string is "dcbaefd".
-</pre>
+```
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<pre>
-<strong>Input:</strong> word = "<u>xyxz</u>xe", ch = "z"
-<strong>Output:</strong> "<u>zxyx</u>xe"
-<strong>Explanation:</strong>&nbsp;The first and only occurrence of "z" is at index 3.
+```
+Input: word = "xyxzxe", ch = "z"
+Output: "zxyxxe"
+Explanation: The first and only occurrence of "z" is at index 3.
 Reverse the part of word from 0 to 3 (inclusive), the resulting string is "zxyxxe".
-</pre>
+```
 
-<p><strong class="example">Example 3:</strong></p>
+## Example 3
 
-<pre>
-<strong>Input:</strong> word = "abcd", ch = "z"
-<strong>Output:</strong> "abcd"
-<strong>Explanation:</strong>&nbsp;"z" does not exist in word.
+```
+Input: word = "abcd", ch = "z"
+Output: "abcd"
+Explanation: "z" does not exist in word.
 You should not do any reverse operation, the resulting string is "abcd".
-</pre>
+```
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= word.length &lt;= 250</code></li> 
- <li><code>word</code> consists of lowercase English letters.</li> 
- <li><code>ch</code> is a lowercase English letter.</li> 
-</ul>
+- `1 <= word.length <= 250`
+- `word` consists of lowercase English letters.
+- `ch` is a lowercase English letter.
 
-<div><div>Related Topics</div><div><li>Two Pointers</li><li>String</li><li>Stack</li></div></div><br><div><li>👍 1524</li><li>👎 46</li></div>
+Related Topics
+
+Two PointersStringStack
+
+👍 1524👎 46

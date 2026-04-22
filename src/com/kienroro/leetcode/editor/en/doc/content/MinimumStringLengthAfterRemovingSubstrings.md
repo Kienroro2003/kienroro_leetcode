@@ -1,38 +1,39 @@
-<p>You are given a string <code>s</code> consisting only of <strong>uppercase</strong> English letters.</p>
+You are given a string `s` consisting only of **uppercase** English letters.
 
-<p>You can apply some operations to this string where, in one operation, you can remove <strong>any</strong> occurrence of one of the substrings <code>"AB"</code> or <code>"CD"</code> from <code>s</code>.</p>
+You can apply some operations to this string where, in one operation, you can remove **any** occurrence of one of the substrings `"AB"` or `"CD"` from `s`.
 
-<p>Return <em>the <strong>minimum</strong> possible length of the resulting string that you can obtain</em>.</p>
+Return *the **minimum** possible length of the resulting string that you can obtain*.
 
-<p><strong>Note</strong> that the string concatenates after removing the substring and could produce new <code>"AB"</code> or <code>"CD"</code> substrings.</p>
+**Note** that the string concatenates after removing the substring and could produce new `"AB"` or `"CD"` substrings.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<pre>
-<strong>Input:</strong> s = "ABFCACDB"
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> We can do the following operations:
-- Remove the substring "<u>AB</u>FCACDB", so s = "FCACDB".
-- Remove the substring "FCA<u>CD</u>B", so s = "FCAB".
-- Remove the substring "FC<u>AB</u>", so s = "FC".
+```
+Input: s = "ABFCACDB"
+Output: 2
+Explanation: We can do the following operations:
+- Remove the substring "ABFCACDB", so s = "FCACDB".
+- Remove the substring "FCACDB", so s = "FCAB".
+- Remove the substring "FCAB", so s = "FC".
 So the resulting length of the string is 2.
-It can be shown that it is the minimum length that we can obtain.</pre>
+It can be shown that it is the minimum length that we can obtain.
+```
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<pre>
-<strong>Input:</strong> s = "ACBBD"
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> We cannot do any operations on the string so the length remains the same.
-</pre>
+```
+Input: s = "ACBBD"
+Output: 5
+Explanation: We cannot do any operations on the string so the length remains the same.
+```
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= s.length &lt;= 100</code></li> 
- <li><code>s</code>&nbsp;consists only of uppercase English letters.</li> 
-</ul>
+- `1 <= s.length <= 100`
+- `s` consists only of uppercase English letters.
 
-<div><div>Related Topics</div><div><li>String</li><li>Stack</li><li>Simulation</li></div></div><br><div><li>👍 1014</li><li>👎 29</li></div>
+Related Topics
+
+StringStackSimulation
+
+👍 1014👎 29

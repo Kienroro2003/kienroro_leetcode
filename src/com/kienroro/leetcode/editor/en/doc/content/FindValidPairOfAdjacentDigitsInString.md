@@ -1,55 +1,47 @@
-<p>You are given a string <code>s</code> consisting only of digits. A <strong>valid pair</strong> is defined as two <strong>adjacent</strong> digits in <code>s</code> such that:</p>
+You are given a string `s` consisting only of digits. A **valid pair** is defined as two **adjacent** digits in `s` such that:
 
-<ul> 
- <li>The first digit is <strong>not equal</strong> to the second.</li> 
- <li>Each digit in the pair appears in <code>s</code> <strong>exactly</strong> as many times as its numeric value.</li> 
-</ul>
+- The first digit is **not equal** to the second.
+- Each digit in the pair appears in `s` **exactly** as many times as its numeric value.
 
-<p>Return the first <strong>valid pair</strong> found in the string <code>s</code> when traversing from left to right. If no valid pair exists, return an empty string.</p>
+Return the first **valid pair** found in the string `s` when traversing from left to right. If no valid pair exists, return an empty string.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">s = "2523533"</span></p> 
-</div>
+ **Input:** s = "2523533"
 
-<p><strong>Output:</strong> <span class="example-io">"23"</span></p>
+**Output:** "23"
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<p>Digit <code>'2'</code> appears 2 times and digit <code>'3'</code> appears 3 times. Each digit in the pair <code>"23"</code> appears in <code>s</code> exactly as many times as its numeric value. Hence, the output is <code>"23"</code>.</p>
+Digit `'2'` appears 2 times and digit `'3'` appears 3 times. Each digit in the pair `"23"` appears in `s` exactly as many times as its numeric value. Hence, the output is `"23"`.
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">s = "221"</span></p> 
-</div>
+ **Input:** s = "221"
 
-<p><strong>Output:</strong> <span class="example-io">"21"</span></p>
+**Output:** "21"
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<p>Digit <code>'2'</code> appears 2 times and digit <code>'1'</code> appears 1 time. Hence, the output is <code>"21"</code>.</p>
+Digit `'2'` appears 2 times and digit `'1'` appears 1 time. Hence, the output is `"21"`.
 
-<p><strong class="example">Example 3:</strong></p>
+## Example 3
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">s = "22"</span></p> 
-</div>
+ **Input:** s = "22"
 
-<p><strong>Output:</strong> <span class="example-io">""</span></p>
+**Output:** ""
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<p>There are no valid adjacent pairs.</p>
+There are no valid adjacent pairs.
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>2 &lt;= s.length &lt;= 100</code></li> 
- <li><code>s</code> only consists of digits from <code>'1'</code> to <code>'9'</code>.</li> 
-</ul>
+- `2 <= s.length <= 100`
+- `s` only consists of digits from `'1'` to `'9'`.
 
-<div><div>Related Topics</div><div><li>Hash Table</li><li>String</li><li>Counting</li></div></div><br><div><li>👍 86</li><li>👎 8</li></div>
+Related Topics
+
+Hash TableStringCounting
+
+👍 86👎 8

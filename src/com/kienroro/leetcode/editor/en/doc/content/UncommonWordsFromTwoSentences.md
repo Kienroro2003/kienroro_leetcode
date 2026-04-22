@@ -1,38 +1,34 @@
-<p>A <strong>sentence</strong> is a string of single-space separated words where each word consists only of lowercase letters.</p>
+A **sentence** is a string of single-space separated words where each word consists only of lowercase letters.
 
-<p>A word is <strong>uncommon</strong> if it appears exactly once in one of the sentences, and <strong>does not appear</strong> in the other sentence.</p>
+A word is **uncommon** if it appears exactly once in one of the sentences, and **does not appear** in the other sentence.
 
-<p>Given two <strong>sentences</strong> <code>s1</code> and <code>s2</code>, return <em>a list of all the <strong>uncommon words</strong></em>. You may return the answer in <strong>any order</strong>.</p>
+Given two **sentences** `s1` and `s2`, return *a list of all the **uncommon words***. You may return the answer in **any order**.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">s1 = "this apple is sweet", s2 = "this apple is sour"</span></p> 
-</div>
+ **Input:** s1 = "this apple is sweet", s2 = "this apple is sour"
 
-<p><strong>Output:</strong> <span class="example-io">["sweet","sour"]</span></p>
+**Output:** ["sweet","sour"]
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<p>The word <code>"sweet"</code> appears only in <code>s1</code>, while the word <code>"sour"</code> appears only in <code>s2</code>.</p>
+The word `"sweet"` appears only in `s1`, while the word `"sour"` appears only in `s2`.
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">s1 = "apple apple", s2 = "banana"</span></p> 
-</div>
+ **Input:** s1 = "apple apple", s2 = "banana"
 
-<p><strong>Output:</strong> <span class="example-io">["banana"]</span></p>
+**Output:** ["banana"]
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= s1.length, s2.length &lt;= 200</code></li> 
- <li><code>s1</code> and <code>s2</code> consist of lowercase English letters and spaces.</li> 
- <li><code>s1</code> and <code>s2</code> do not have leading or trailing spaces.</li> 
- <li>All the words in <code>s1</code> and <code>s2</code> are separated by a single space.</li> 
-</ul>
+- `1 <= s1.length, s2.length <= 200`
+- `s1` and `s2` consist of lowercase English letters and spaces.
+- `s1` and `s2` do not have leading or trailing spaces.
+- All the words in `s1` and `s2` are separated by a single space.
 
-<div><div>Related Topics</div><div><li>Hash Table</li><li>String</li><li>Counting</li></div></div><br><div><li>👍 1902</li><li>👎 209</li></div>
+Related Topics
+
+Hash TableStringCounting
+
+👍 1902👎 209

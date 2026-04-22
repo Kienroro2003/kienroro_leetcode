@@ -1,34 +1,34 @@
-<p>Given a n-ary tree, find its maximum depth.</p>
+Given a n-ary tree, find its maximum depth.
 
-<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 
-<p><em>Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p>
+*Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See examples).*
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<p><img src="https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" style="width: 100%; max-width: 300px;" /></p>
+![narytreeexample.png](https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png)
 
-<pre>
-<strong>Input:</strong> root = [1,null,3,2,4,null,5,6]
-<strong>Output:</strong> 3
-</pre>
+```
+Input: root = [1,null,3,2,4,null,5,6]
+Output: 3
+```
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" style="width: 296px; height: 241px;" /></p>
+![sample_4_964.png](https://assets.leetcode.com/uploads/2019/11/08/sample_4_964.png)
 
-<pre>
-<strong>Input:</strong> root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
-<strong>Output:</strong> 5
-</pre>
+```
+Input: root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
+Output: 5
+```
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li>The total number of nodes is in the range <code>[0, 10<sup>4</sup>]</code>.</li> 
- <li>The depth of the n-ary tree is less than or equal to <code>1000</code>.</li> 
-</ul>
+- The total number of nodes is in the range `[0, 104]`.
+- The depth of the n-ary tree is less than or equal to `1000`.
 
-<div><div>Related Topics</div><div><li>Tree</li><li>Depth-First Search</li><li>Breadth-First Search</li></div></div><br><div><li>👍 2874</li><li>👎 96</li></div>
+Related Topics
+
+TreeDepth-First SearchBreadth-First Search
+
+👍 2874👎 96

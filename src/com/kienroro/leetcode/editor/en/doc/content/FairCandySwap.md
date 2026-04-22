@@ -1,39 +1,39 @@
-<p>Alice and Bob have a different total number of candies. You are given two integer arrays <code>aliceSizes</code> and <code>bobSizes</code> where <code>aliceSizes[i]</code> is the number of candies of the <code>i<sup>th</sup></code> box of candy that Alice has and <code>bobSizes[j]</code> is the number of candies of the <code>j<sup>th</sup></code> box of candy that Bob has.</p>
+Alice and Bob have a different total number of candies. You are given two integer arrays `aliceSizes` and `bobSizes` where `aliceSizes[i]` is the number of candies of the `ith` box of candy that Alice has and `bobSizes[j]` is the number of candies of the `jth` box of candy that Bob has.
 
-<p>Since they are friends, they would like to exchange one candy box each so that after the exchange, they both have the same total amount of candy. The total amount of candy a person has is the sum of the number of candies in each box they have.</p>
+Since they are friends, they would like to exchange one candy box each so that after the exchange, they both have the same total amount of candy. The total amount of candy a person has is the sum of the number of candies in each box they have.
 
-<p>Return a<em>n integer array </em><code>answer</code><em> where </em><code>answer[0]</code><em> is the number of candies in the box that Alice must exchange, and </em><code>answer[1]</code><em> is the number of candies in the box that Bob must exchange</em>. If there are multiple answers, you may <strong>return any</strong> one of them. It is guaranteed that at least one answer exists.</p>
+Return a*n integer array*`answer`*where*`answer[0]`*is the number of candies in the box that Alice must exchange, and*`answer[1]`*is the number of candies in the box that Bob must exchange*. If there are multiple answers, you may **return any** one of them. It is guaranteed that at least one answer exists.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<pre>
-<strong>Input:</strong> aliceSizes = [1,1], bobSizes = [2,2]
-<strong>Output:</strong> [1,2]
-</pre>
+```
+Input: aliceSizes = [1,1], bobSizes = [2,2]
+Output: [1,2]
+```
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<pre>
-<strong>Input:</strong> aliceSizes = [1,2], bobSizes = [2,3]
-<strong>Output:</strong> [1,2]
-</pre>
+```
+Input: aliceSizes = [1,2], bobSizes = [2,3]
+Output: [1,2]
+```
 
-<p><strong class="example">Example 3:</strong></p>
+## Example 3
 
-<pre>
-<strong>Input:</strong> aliceSizes = [2], bobSizes = [1,3]
-<strong>Output:</strong> [2,3]
-</pre>
+```
+Input: aliceSizes = [2], bobSizes = [1,3]
+Output: [2,3]
+```
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= aliceSizes.length, bobSizes.length &lt;= 10<sup>4</sup></code></li> 
- <li><code>1 &lt;= aliceSizes[i], bobSizes[j] &lt;= 10<sup>5</sup></code></li> 
- <li>Alice and Bob have a different total number of candies.</li> 
- <li>There will be at least one valid answer for the given input.</li> 
-</ul>
+- `1 <= aliceSizes.length, bobSizes.length <= 104`
+- `1 <= aliceSizes[i], bobSizes[j] <= 105`
+- Alice and Bob have a different total number of candies.
+- There will be at least one valid answer for the given input.
 
-<div><div>Related Topics</div><div><li>Array</li><li>Hash Table</li><li>Binary Search</li><li>Sorting</li></div></div><br><div><li>👍 2279</li><li>👎 422</li></div>
+Related Topics
+
+ArrayHash TableBinary SearchSorting
+
+👍 2279👎 422

@@ -1,55 +1,53 @@
-<p>The Leetcode file system keeps a log each time some user performs a <em>change folder</em> operation.</p>
+The Leetcode file system keeps a log each time some user performs a *change folder* operation.
 
-<p>The operations are described below:</p>
+The operations are described below:
 
-<ul> 
- <li><code>"../"</code> : Move to the parent folder of the current folder. (If you are already in the main folder, <strong>remain in the same folder</strong>).</li> 
- <li><code>"./"</code> : Remain in the same folder.</li> 
- <li><code>"x/"</code> : Move to the child folder named <code>x</code> (This folder is <strong>guaranteed to always exist</strong>).</li> 
-</ul>
+- `"../"` : Move to the parent folder of the current folder. (If you are already in the main folder, **remain in the same folder**).
+- `"./"` : Remain in the same folder.
+- `"x/"` : Move to the child folder named `x` (This folder is **guaranteed to always exist**).
 
-<p>You are given a list of strings <code>logs</code> where <code>logs[i]</code> is the operation performed by the user at the <code>i<sup>th</sup></code> step.</p>
+You are given a list of strings `logs` where `logs[i]` is the operation performed by the user at the `ith` step.
 
-<p>The file system starts in the main folder, then the operations in <code>logs</code> are performed.</p>
+The file system starts in the main folder, then the operations in `logs` are performed.
 
-<p>Return <em>the minimum number of operations needed to go back to the main folder after the change folder operations.</em></p>
+Return *the minimum number of operations needed to go back to the main folder after the change folder operations.*
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/sample_11_1957.png" style="width: 775px; height: 151px;" /></p>
+![sample_11_1957.png](https://assets.leetcode.com/uploads/2020/09/09/sample_11_1957.png)
 
-<pre>
-<strong>Input:</strong> logs = ["d1/","d2/","../","d21/","./"]
-<strong>Output:</strong> 2
-<strong>Explanation: </strong>Use this change folder operation "../" 2 times and go back to the main folder.
-</pre>
+```
+Input: logs = ["d1/","d2/","../","d21/","./"]
+Output: 2
+Explanation:Use this change folder operation "../" 2 times and go back to the main folder.
+```
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/sample_22_1957.png" style="width: 600px; height: 270px;" /></p>
+![sample_22_1957.png](https://assets.leetcode.com/uploads/2020/09/09/sample_22_1957.png)
 
-<pre>
-<strong>Input:</strong> logs = ["d1/","d2/","./","d3/","../","d31/"]
-<strong>Output:</strong> 3
-</pre>
+```
+Input: logs = ["d1/","d2/","./","d3/","../","d31/"]
+Output: 3
+```
 
-<p><strong class="example">Example 3:</strong></p>
+## Example 3
 
-<pre>
-<strong>Input:</strong> logs = ["d1/","../","../","../"]
-<strong>Output:</strong> 0
-</pre>
+```
+Input: logs = ["d1/","../","../","../"]
+Output: 0
+```
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= logs.length &lt;= 10<sup>3</sup></code></li> 
- <li><code>2 &lt;= logs[i].length &lt;= 10</code></li> 
- <li><code>logs[i]</code> contains lowercase English letters, digits, <code>'.'</code>, and <code>'/'</code>.</li> 
- <li><code>logs[i]</code> follows the format described in the statement.</li> 
- <li>Folder names consist of lowercase English letters and digits.</li> 
-</ul>
+- `1 <= logs.length <= 103`
+- `2 <= logs[i].length <= 10`
+- `logs[i]` contains lowercase English letters, digits, `'.'`, and `'/'`.
+- `logs[i]` follows the format described in the statement.
+- Folder names consist of lowercase English letters and digits.
 
-<div><div>Related Topics</div><div><li>Array</li><li>String</li><li>Stack</li></div></div><br><div><li>👍 1552</li><li>👎 99</li></div>
+Related Topics
+
+ArrayStringStack
+
+👍 1552👎 99

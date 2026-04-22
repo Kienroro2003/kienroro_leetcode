@@ -1,31 +1,26 @@
-<p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if <code>t</code> is an <span data-keyword="anagram">anagram</span> of <code>s</code>, and <code>false</code> otherwise.</p>
+Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">s = "anagram", t = "nagaram"</span></p> 
-</div>
+ **Input:** s = "anagram", t = "nagaram"
 
-<p><strong>Output:</strong> <span class="example-io">true</span></p>
+**Output:** true
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">s = "rat", t = "car"</span></p> 
-</div>
+ **Input:** s = "rat", t = "car"
 
-<p><strong>Output:</strong> <span class="example-io">false</span></p>
+**Output:** false
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= s.length, t.length &lt;= 5 * 10<sup>4</sup></code></li> 
- <li><code>s</code> and <code>t</code> consist of lowercase English letters.</li> 
-</ul>
+- `1 <= s.length, t.length <= 5 * 104`
+- `s` and `t` consist of lowercase English letters.
 
-<p>&nbsp;</p> 
-<p><strong>Follow up:</strong> What if the inputs contain Unicode characters? How would you adapt your solution to such a case?</p>
+**Follow up:** What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
-<div><div>Related Topics</div><div><li>Hash Table</li><li>String</li><li>Sorting</li></div></div><br><div><li>👍 14365</li><li>👎 478</li></div>
+Related Topics
+
+Hash TableStringSorting
+
+👍 14365👎 478

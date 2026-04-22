@@ -36,8 +36,11 @@
 //
 // Related Topics Tree Depth-First Search Breadth-First Search 👍 2874 👎 96
 
-
 package com.kienroro.leetcode.editor.en;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.List;
 
 public class MaximumDepthOfNAryTree {
     public static void main(String[] args) {
@@ -45,38 +48,60 @@ public class MaximumDepthOfNAryTree {
         Solution solution = outer.new Solution();
 
         // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(solution.maxDepth(null));
     }
 
-    //leetcode submit region begin(Prohibit modification and deletion)
-/*
-// Definition for a Node.
-class Node {
-    public int val;
-    public List<Node> children;
+    class Node {
+        public int val;
+        public List<Node> children;
 
-    public Node() {}
+        public Node() {
+        }
 
-    public Node(int _val) {
-        val = _val;
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val, List<Node> _children) {
+            val = _val;
+            children = _children;
+        }
     }
 
-    public Node(int _val, List<Node> _children) {
-        val = _val;
-        children = _children;
-    }
-};
-*/
+    // leetcode submit region begin(Prohibit modification and deletion)
+    /*
+     * // Definition for a Node.
+     * class Node {
+     * public int val;
+     * public List<Node> children;
+     * 
+     * public Node() {}
+     * 
+     * public Node(int _val) {
+     * val = _val;
+     * }
+     * 
+     * public Node(int _val, List<Node> _children) {
+     * val = _val;
+     * children = _children;
+     * }
+     * };
+     */
 
-class Solution {
-    public int maxDepth(Node root) {
-        
+    class Solution {
+        public int maxDepth(Node root) {
+            if (root == null) {
+                return 0;
+            }
+            if (root.children == null) {
+                return 1;
+            }
+            Deque<Node> cache = new ArrayDeque<>();
+            Deque<Integer> depths = new ArrayDeque<>();
+
+            return 0;
+        }
     }
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    // leetcode submit region end(Prohibit modification and deletion)
 
 }

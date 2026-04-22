@@ -1,50 +1,43 @@
-<p>You are given a string <code>s</code>.</p>
+You are given a string `s`.
 
-<p>Your task is to remove <strong>all</strong> digits by doing this operation repeatedly:</p>
+Your task is to remove **all** digits by doing this operation repeatedly:
 
-<ul> 
- <li>Delete the <em>first</em> digit and the <strong>closest</strong> <b>non-digit</b> character to its <em>left</em>.</li> 
-</ul>
+- Delete the *first* digit and the **closest** **non-digit** character to its *left*.
 
-<p>Return the resulting string after removing all digits.</p>
+Return the resulting string after removing all digits.
 
-<p><strong>Note</strong> that the operation <em>cannot</em> be performed on a digit that does not have any non-digit character to its left.</p>
+**Note** that the operation *cannot* be performed on a digit that does not have any non-digit character to its left.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">s = "abc"</span></p> 
-</div>
+ **Input:** s = "abc"
 
-<p><strong>Output:</strong> <span class="example-io">"abc"</span></p>
+**Output:** "abc"
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<p>There is no digit in the string.
- <!-- notionvc: ff07e34f-b1d6-41fb-9f83-5d0ba3c1ecde --></p>
+There is no digit in the string.
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">s = "cb34"</span></p> 
-</div>
+ **Input:** s = "cb34"
 
-<p><strong>Output:</strong> <span class="example-io">""</span></p>
+**Output:** ""
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<p>First, we apply the operation on <code>s[2]</code>, and <code>s</code> becomes <code>"c4"</code>.</p>
+First, we apply the operation on `s[2]`, and `s` becomes `"c4"`.
 
-<p>Then we apply the operation on <code>s[1]</code>, and <code>s</code> becomes <code>""</code>.</p>
+Then we apply the operation on `s[1]`, and `s` becomes `""`.
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= s.length &lt;= 100</code></li> 
- <li><code>s</code> consists only of lowercase English letters and digits.</li> 
- <li>The input is generated such that it is possible to delete all digits.</li> 
-</ul>
+- `1 <= s.length <= 100`
+- `s` consists only of lowercase English letters and digits.
+- The input is generated such that it is possible to delete all digits.
 
-<div><div>Related Topics</div><div><li>String</li><li>Stack</li><li>Simulation</li></div></div><br><div><li>👍 704</li><li>👎 27</li></div>
+Related Topics
+
+StringStackSimulation
+
+👍 704👎 27

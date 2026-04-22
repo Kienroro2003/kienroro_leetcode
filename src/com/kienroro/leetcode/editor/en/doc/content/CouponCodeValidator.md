@@ -1,64 +1,52 @@
-<p>You are given three arrays of length <code>n</code> that describe the properties of <code>n</code> coupons: <code>code</code>, <code>businessLine</code>, and <code>isActive</code>. The <code>i<sup>th</sup> </code>coupon has:</p>
+You are given three arrays of length `n` that describe the properties of `n` coupons: `code`, `businessLine`, and `isActive`. The `ith`coupon has:
 
-<ul> 
- <li><code>code[i]</code>: a <strong>string</strong> representing the coupon identifier.</li> 
- <li><code>businessLine[i]</code>: a <strong>string</strong> denoting the business category of the coupon.</li> 
- <li><code>isActive[i]</code>: a <strong>boolean</strong> indicating whether the coupon is currently active.</li> 
-</ul>
+- `code[i]`: a **string** representing the coupon identifier.
+- `businessLine[i]`: a **string** denoting the business category of the coupon.
+- `isActive[i]`: a **boolean** indicating whether the coupon is currently active.
 
-<p>A coupon is considered <strong>valid</strong> if all of the following conditions hold:</p>
+A coupon is considered **valid** if all of the following conditions hold:
 
-<ol> 
- <li><code>code[i]</code> is non-empty and consists only of alphanumeric characters (a-z, A-Z, 0-9) and underscores (<code>_</code>).</li> 
- <li><code>businessLine[i]</code> is one of the following four categories: <code>"electronics"</code>, <code>"grocery"</code>, <code>"pharmacy"</code>, <code>"restaurant"</code>.</li> 
- <li><code>isActive[i]</code> is <strong>true</strong>.</li> 
-</ol>
+1. `code[i]` is non-empty and consists only of alphanumeric characters (a-z, A-Z, 0-9) and underscores (`_`).
+2. `businessLine[i]` is one of the following four categories: `"electronics"`, `"grocery"`, `"pharmacy"`, `"restaurant"`.
+3. `isActive[i]` is **true**.
 
-<p>Return an array of the <strong>codes</strong> of all valid coupons, <strong>sorted</strong> first by their <strong>businessLine</strong> in the order: <code>"electronics"</code>, <code>"grocery"</code>, <code>"pharmacy", "restaurant"</code>, and then by <strong>code</strong> in lexicographical (ascending) order within each category.</p>
+Return an array of the **codes** of all valid coupons, **sorted** first by their **businessLine** in the order: `"electronics"`, `"grocery"`, `"pharmacy", "restaurant"`, and then by **code** in lexicographical (ascending) order within each category.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">code = ["SAVE20","","PHARMA5","SAVE@20"], businessLine = ["restaurant","grocery","pharmacy","restaurant"], isActive = [true,true,true,true]</span></p> 
-</div>
+ **Input:** code = ["SAVE20","","PHARMA5","SAVE@20"], businessLine = ["restaurant","grocery","pharmacy","restaurant"], isActive = [true,true,true,true]
 
-<p><strong>Output:</strong> <span class="example-io">["PHARMA5","SAVE20"]</span></p>
+**Output:** ["PHARMA5","SAVE20"]
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<ul> 
- <li>First coupon is valid.</li> 
- <li>Second coupon has empty code (invalid).</li> 
- <li>Third coupon is valid.</li> 
- <li>Fourth coupon has special character <code>@</code> (invalid).</li> 
-</ul>
+- First coupon is valid.
+- Second coupon has empty code (invalid).
+- Third coupon is valid.
+- Fourth coupon has special character `@` (invalid).
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">code = ["GROCERY15","ELECTRONICS_50","DISCOUNT10"], businessLine = ["grocery","electronics","invalid"], isActive = [false,true,true]</span></p> 
-</div>
+ **Input:** code = ["GROCERY15","ELECTRONICS_50","DISCOUNT10"], businessLine = ["grocery","electronics","invalid"], isActive = [false,true,true]
 
-<p><strong>Output:</strong> <span class="example-io">["ELECTRONICS_50"]</span></p>
+**Output:** ["ELECTRONICS_50"]
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<ul> 
- <li>First coupon is inactive (invalid).</li> 
- <li>Second coupon is valid.</li> 
- <li>Third coupon has invalid business line (invalid).</li> 
-</ul>
+- First coupon is inactive (invalid).
+- Second coupon is valid.
+- Third coupon has invalid business line (invalid).
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>n == code.length == businessLine.length == isActive.length</code></li> 
- <li><code>1 &lt;= n &lt;= 100</code></li> 
- <li><code>0 &lt;= code[i].length, businessLine[i].length &lt;= 100</code></li> 
- <li><code>code[i]</code> and <code>businessLine[i]</code> consist of printable ASCII characters.</li> 
- <li><code>isActive[i]</code> is either <code>true</code> or <code>false</code>.</li> 
-</ul>
+- `n == code.length == businessLine.length == isActive.length`
+- `1 <= n <= 100`
+- `0 <= code[i].length, businessLine[i].length <= 100`
+- `code[i]` and `businessLine[i]` consist of printable ASCII characters.
+- `isActive[i]` is either `true` or `false`.
 
-<div><div>Related Topics</div><div><li>Array</li><li>Hash Table</li><li>String</li><li>Sorting</li></div></div><br><div><li>👍 336</li><li>👎 107</li></div>
+Related Topics
+
+ArrayHash TableStringSorting
+
+👍 336👎 107

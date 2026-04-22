@@ -1,23 +1,19 @@
-<p>The school cafeteria offers circular and square sandwiches at lunch break, referred to by numbers <code>0</code> and <code>1</code> respectively. All students stand in a queue. Each student either prefers square or circular sandwiches.</p>
+The school cafeteria offers circular and square sandwiches at lunch break, referred to by numbers `0` and `1` respectively. All students stand in a queue. Each student either prefers square or circular sandwiches.
 
-<p>The number of sandwiches in the cafeteria is equal to the number of students. The sandwiches are placed in a <strong>stack</strong>. At each step:</p>
+The number of sandwiches in the cafeteria is equal to the number of students. The sandwiches are placed in a **stack**. At each step:
 
-<ul> 
- <li>If the student at the front of the queue <strong>prefers</strong> the sandwich on the top of the stack, they will <strong>take it</strong> and leave the queue.</li> 
- <li>Otherwise, they will <strong>leave it</strong> and go to the queue's end.</li> 
-</ul>
+- If the student at the front of the queue **prefers** the sandwich on the top of the stack, they will **take it** and leave the queue.
+- Otherwise, they will **leave it** and go to the queue's end.
 
-<p>This continues until none of the queue students want to take the top sandwich and are thus unable to eat.</p>
+This continues until none of the queue students want to take the top sandwich and are thus unable to eat.
 
-<p>You are given two integer arrays <code>students</code> and <code>sandwiches</code> where <code>sandwiches[i]</code> is the type of the <code>i<sup>​​​​​​th</sup></code> sandwich in the stack (<code>i = 0</code> is the top of the stack) and <code>students[j]</code> is the preference of the <code>j<sup>​​​​​​th</sup></code> student in the initial queue (<code>j = 0</code> is the front of the queue). Return <em>the number of students that are unable to eat.</em></p>
+You are given two integer arrays `students` and `sandwiches` where `sandwiches[i]` is the type of the `i​​​​​​th` sandwich in the stack (`i = 0` is the top of the stack) and `students[j]` is the preference of the `j​​​​​​th` student in the initial queue (`j = 0` is the front of the queue). Return *the number of students that are unable to eat.*
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<pre>
-<strong>Input:</strong> students = [1,1,0,0], sandwiches = [0,1,0,1]
-<strong>Output:</strong> 0<strong> 
-Explanation:</strong>
+```
+Input: students = [1,1,0,0], sandwiches = [0,1,0,1]
+Output: 0Explanation:
 - Front student leaves the top sandwich and returns to the end of the line making students = [1,0,0,1].
 - Front student leaves the top sandwich and returns to the end of the line making students = [0,0,1,1].
 - Front student takes the top sandwich and leaves the line making students = [0,1,1] and sandwiches = [1,0,1].
@@ -27,23 +23,24 @@ Explanation:</strong>
 - Front student takes the top sandwich and leaves the line making students = [1] and sandwiches = [1].
 - Front student takes the top sandwich and leaves the line making students = [] and sandwiches = [].
 Hence all students are able to eat.
-</pre>
+```
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<pre>
-<strong>Input:</strong> students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]
-<strong>Output:</strong> 3
-</pre>
+```
+Input: students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]
+Output: 3
+```
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= students.length, sandwiches.length &lt;= 100</code></li> 
- <li><code>students.length == sandwiches.length</code></li> 
- <li><code>sandwiches[i]</code> is <code>0</code> or <code>1</code>.</li> 
- <li><code>students[i]</code> is <code>0</code> or <code>1</code>.</li> 
-</ul>
+- `1 <= students.length, sandwiches.length <= 100`
+- `students.length == sandwiches.length`
+- `sandwiches[i]` is `0` or `1`.
+- `students[i]` is `0` or `1`.
 
-<div><div>Related Topics</div><div><li>Array</li><li>Stack</li><li>Queue</li><li>Simulation</li></div></div><br><div><li>👍 2740</li><li>👎 294</li></div>
+Related Topics
+
+ArrayStackQueueSimulation
+
+👍 2740👎 294

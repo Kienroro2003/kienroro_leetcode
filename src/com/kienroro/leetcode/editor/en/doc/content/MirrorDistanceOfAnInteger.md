@@ -1,62 +1,50 @@
-<p>You are given an integer <code>n</code>.</p>
+You are given an integer `n`.
 
-<p>Define its <strong>mirror distance</strong> as: <code>abs(n - reverse(n))</code>​​​​​​​ where <code>reverse(n)</code> is the integer formed by reversing the digits of <code>n</code>.</p>
+Define its **mirror distance** as: `abs(n - reverse(n))`​​​​​​​ where `reverse(n)` is the integer formed by reversing the digits of `n`.
 
-<p>Return an integer denoting the mirror distance of <code>n</code>​​​​​​​.</p>
+Return an integer denoting the mirror distance of `n`​​​​​​​.
 
-<p><code>abs(x)</code> denotes the absolute value of <code>x</code>.</p>
+`abs(x)` denotes the absolute value of `x`.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">n = 25</span></p> 
-</div>
+ **Input:** n = 25
 
-<p><strong>Output:</strong> <span class="example-io">27</span></p>
+**Output:** 27
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<ul> 
- <li><code>reverse(25) = 52</code>.</li> 
- <li>Thus, the answer is <code>abs(25 - 52) = 27</code>.</li> 
-</ul>
+- `reverse(25) = 52`.
+- Thus, the answer is `abs(25 - 52) = 27`.
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">n = 10</span></p> 
-</div>
+ **Input:** n = 10
 
-<p><strong>Output:</strong> <span class="example-io">9</span></p>
+**Output:** 9
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<ul> 
- <li><code>reverse(10) = 01</code> which is 1.</li> 
- <li>Thus, the answer is <code>abs(10 - 1) = 9</code>.</li> 
-</ul>
+- `reverse(10) = 01` which is 1.
+- Thus, the answer is `abs(10 - 1) = 9`.
 
-<p><strong class="example">Example 3:</strong></p>
+## Example 3
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">n = 7</span></p> 
-</div>
+ **Input:** n = 7
 
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
+**Output:** 0
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<ul> 
- <li><code>reverse(7) = 7</code>.</li> 
- <li>Thus, the answer is <code>abs(7 - 7) = 0</code>.</li> 
-</ul>
+- `reverse(7) = 7`.
+- Thus, the answer is `abs(7 - 7) = 0`.
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li> 
-</ul>
+- `1 <= n <= 109`
 
-<div><div>Related Topics</div><div><li>Math</li></div></div><br><div><li>👍 175</li><li>👎 7</li></div>
+Related Topics
+
+Math
+
+👍 175👎 7

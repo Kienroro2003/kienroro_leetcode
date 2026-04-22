@@ -1,62 +1,54 @@
-<p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
+You are given an integer array `nums` and an integer `k`.
 
-<p>An integer <code>h</code> is called <strong>valid</strong> if all values in the array that are <strong>strictly greater</strong> than <code>h</code> are <em>identical</em>.</p>
+An integer `h` is called **valid** if all values in the array that are **strictly greater** than `h` are *identical*.
 
-<p>For example, if <code>nums = [10, 8, 10, 8]</code>, a <strong>valid</strong> integer is <code>h = 9</code> because all <code>nums[i] &gt; 9</code>&nbsp;are equal to 10, but 5 is not a <strong>valid</strong> integer.</p>
+For example, if `nums = [10, 8, 10, 8]`, a **valid** integer is `h = 9` because all `nums[i] > 9` are equal to 10, but 5 is not a **valid** integer.
 
-<p>You are allowed to perform the following operation on <code>nums</code>:</p>
+You are allowed to perform the following operation on `nums`:
 
-<ul> 
- <li>Select an integer <code>h</code> that is <em>valid</em> for the <strong>current</strong> values in <code>nums</code>.</li> 
- <li>For each index <code>i</code> where <code>nums[i] &gt; h</code>, set <code>nums[i]</code> to <code>h</code>.</li> 
-</ul>
+- Select an integer `h` that is *valid* for the **current** values in `nums`.
+- For each index `i` where `nums[i] > h`, set `nums[i]` to `h`.
 
-<p>Return the <strong>minimum</strong> number of operations required to make every element in <code>nums</code> <strong>equal</strong> to <code>k</code>. If it is impossible to make all elements equal to <code>k</code>, return -1.</p>
+Return the **minimum** number of operations required to make every element in `nums` **equal** to `k`. If it is impossible to make all elements equal to `k`, return -1.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">nums = [5,2,5,4,5], k = 2</span></p> 
-</div>
+ **Input:** nums = [5,2,5,4,5], k = 2
 
-<p><strong>Output:</strong> <span class="example-io">2</span></p>
+**Output:** 2
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<p>The operations can be performed in order using valid integers 4 and then 2.</p>
+The operations can be performed in order using valid integers 4 and then 2.
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">nums = [2,1,2], k = 2</span></p> 
-</div>
+ **Input:** nums = [2,1,2], k = 2
 
-<p><strong>Output:</strong> <span class="example-io">-1</span></p>
+**Output:** -1
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<p>It is impossible to make all the values equal to 2.</p>
+It is impossible to make all the values equal to 2.
 
-<p><strong class="example">Example 3:</strong></p>
+## Example 3
 
-<div class="example-block"> 
- <p><strong>Input:</strong> <span class="example-io">nums = [9,7,5,3], k = 1</span></p> 
-</div>
+ **Input:** nums = [9,7,5,3], k = 1
 
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
+**Output:** 4
 
-<p><strong>Explanation:</strong></p>
+**Explanation:**
 
-<p>The operations can be performed using valid integers in the order 7, 5, 3, and 1.</p>
+The operations can be performed using valid integers in the order 7, 5, 3, and 1.
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= nums.length &lt;= 100 </code></li> 
- <li><code>1 &lt;= nums[i] &lt;= 100</code></li> 
- <li><code>1 &lt;= k &lt;= 100</code></li> 
-</ul>
+- `1 <= nums.length <= 100`
+- `1 <= nums[i] <= 100`
+- `1 <= k <= 100`
 
-<div><div>Related Topics</div><div><li>Array</li><li>Hash Table</li></div></div><br><div><li>👍 408</li><li>👎 533</li></div>
+Related Topics
+
+ArrayHash Table
+
+👍 408👎 533

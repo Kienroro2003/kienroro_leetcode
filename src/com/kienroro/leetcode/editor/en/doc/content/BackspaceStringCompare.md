@@ -1,41 +1,40 @@
-<p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> <em>if they are equal when both are typed into empty text editors</em>. <code>'#'</code> means a backspace character.</p>
+Given two strings `s` and `t`, return `true` *if they are equal when both are typed into empty text editors*. `'#'` means a backspace character.
 
-<p>Note that after backspacing an empty text, the text will continue empty.</p>
+Note that after backspacing an empty text, the text will continue empty.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<pre>
-<strong>Input:</strong> s = "ab#c", t = "ad#c"
-<strong>Output:</strong> true
-<strong>Explanation:</strong> Both s and t become "ac".
-</pre>
+```
+Input: s = "ab#c", t = "ad#c"
+Output: true
+Explanation: Both s and t become "ac".
+```
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<pre>
-<strong>Input:</strong> s = "ab##", t = "c#d#"
-<strong>Output:</strong> true
-<strong>Explanation:</strong> Both s and t become "".
-</pre>
+```
+Input: s = "ab##", t = "c#d#"
+Output: true
+Explanation: Both s and t become "".
+```
 
-<p><strong class="example">Example 3:</strong></p>
+## Example 3
 
-<pre>
-<strong>Input:</strong> s = "a#c", t = "b"
-<strong>Output:</strong> false
-<strong>Explanation:</strong> s becomes "c" while t becomes "b".
-</pre>
+```
+Input: s = "a#c", t = "b"
+Output: false
+Explanation: s becomes "c" while t becomes "b".
+```
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code><span>1 &lt;= s.length, t.length &lt;= 200</span></code></li> 
- <li><span><code>s</code> and <code>t</code> only contain lowercase letters and <code>'#'</code> characters.</span></li> 
-</ul>
+- `1 <= s.length, t.length <= 200`
+- `s` and `t` only contain lowercase letters and `'#'` characters.
 
-<p>&nbsp;</p> 
-<p><strong>Follow up:</strong> Can you solve it in <code>O(n)</code> time and <code>O(1)</code> space?</p>
+**Follow up:** Can you solve it in `O(n)` time and `O(1)` space?
 
-<div><div>Related Topics</div><div><li>Two Pointers</li><li>String</li><li>Stack</li><li>Simulation</li></div></div><br><div><li>👍 7955</li><li>👎 385</li></div>
+Related Topics
+
+Two PointersStringStackSimulation
+
+👍 7955👎 385
