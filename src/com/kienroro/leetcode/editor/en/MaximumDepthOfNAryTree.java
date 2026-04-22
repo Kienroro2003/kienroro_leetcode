@@ -47,8 +47,40 @@ public class MaximumDepthOfNAryTree {
         MaximumDepthOfNAryTree outer = new MaximumDepthOfNAryTree();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        System.out.println(solution.maxDepth(null));
+        System.out.println(solution.maxDepth(null)); // expected: 0
+
+        Node singleNode = outer.new Node(1, List.of());
+        System.out.println(outer.maxDepth(singleNode)); // expected: 1
+
+        Node sampleOne = outer.new Node(1, List.of(
+                outer.new Node(3, List.of(
+                        outer.new Node(5, List.of()),
+                        outer.new Node(6, List.of()))),
+                outer.new Node(2, List.of()),
+                outer.new Node(4, List.of())));
+        System.out.println(outer.maxDepth(sampleOne)); // expected: 3
+
+        Node sampleTwo = outer.new Node(1, List.of(
+                outer.new Node(2, List.of()),
+                outer.new Node(3, List.of(
+                        outer.new Node(6, List.of()),
+                        outer.new Node(7, List.of(
+                                outer.new Node(11, List.of(
+                                        outer.new Node(14, List.of()))))))),
+                outer.new Node(4, List.of(
+                        outer.new Node(8, List.of(
+                                outer.new Node(12, List.of()))))),
+                outer.new Node(5, List.of(
+                        outer.new Node(9, List.of(
+                                outer.new Node(13, List.of()))),
+                        outer.new Node(10, List.of())))));
+        System.out.println(outer.maxDepth(sampleTwo)); // expected: 5
+
+        Node skewedTree = outer.new Node(1, List.of(
+                outer.new Node(2, List.of(
+                        outer.new Node(3, List.of(
+                                outer.new Node(4, List.of())))))));
+        System.out.println(outer.maxDepth(skewedTree)); // expected: 4
     }
 
     class Node {
@@ -66,6 +98,32 @@ public class MaximumDepthOfNAryTree {
             val = _val;
             children = _children;
         }
+    }
+
+    class State {
+        private Node node;
+        private int depth;
+
+        public State(Node node, int depth) {
+            this.node = node;
+            this.depth = depth;
+        }
+    }
+
+    public int maxDepth(Node root) {
+        Deque<State> stack = new ArrayDeque<>();
+        stack.push(new State(root, 1));
+        int maximumDepth = 0;
+        while (!stack.isEmpty()) {
+            State state = stack.pop();
+            maximumDepth = Math.max(maximumDepth, state.depth);
+            for (Node node : state.node.children) {
+                stack.push(new State(node, state.depth + 1));
+            }
+        }
+
+        return maximumDepth;
+
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)
@@ -93,13 +151,21 @@ public class MaximumDepthOfNAryTree {
             if (root == null) {
                 return 0;
             }
-            if (root.children == null) {
-                return 1;
+            int depth = 0;
+            Deque<Node> queue = new ArrayDeque<>();
+            queue.offer(root);
+            while (!queue.isEmpty()) {
+                int size = queue.size();
+                depth++;
+                while (size-- > 0) {
+                    Node curr = queue.poll();
+                    for (Node node : curr.children) {
+                        queue.offer(node);
+                    }
+                }
             }
-            Deque<Node> cache = new ArrayDeque<>();
-            Deque<Integer> depths = new ArrayDeque<>();
 
-            return 0;
+            return depth;
         }
     }
     // leetcode submit region end(Prohibit modification and deletion)
