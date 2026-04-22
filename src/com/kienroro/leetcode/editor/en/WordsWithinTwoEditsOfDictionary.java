@@ -70,13 +70,7 @@ public class WordsWithinTwoEditsOfDictionary {
             List<String> res = new ArrayList<>();
             for (String query : queries) {
                 for (String word : dictionary) {
-                    int maxEdit = 2;
-                    for (int i = 0; i < query.length(); i++) {
-                        if (query.charAt(i) != word.charAt(i)) {
-                            maxEdit--;
-                        }
-                    }
-                    if (maxEdit >= 0) {
+                    if (isWithinTwoEditWords(query, word)) {
                         res.add(query);
                         break;
                     }
@@ -85,6 +79,16 @@ public class WordsWithinTwoEditsOfDictionary {
 
             return res;
 
+        }
+
+        private boolean isWithinTwoEditWords(String query, String word) {
+            int remainingEdit = 2;
+            for (int i = 0; i < query.length(); i++) {
+                if (query.charAt(i) != word.charAt(i) && --remainingEdit < 0) {
+                    return false;
+                }
+            }
+            return true;
         }
     }
     // leetcode submit region end(Prohibit modification and deletion)
