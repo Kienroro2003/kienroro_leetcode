@@ -28,17 +28,35 @@
 
 package com.kienroro.leetcode.editor.en;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class SumOfDistances {
     public static void main(String[] args) {
         SumOfDistances outer = new SumOfDistances();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(Arrays.toString(solution.distance(
+                new int[] { 1, 3, 1, 1, 2 }))); // expected: [5, 0, 3, 4, 0]
+
+        System.out.println(Arrays.toString(solution.distance(
+                new int[] { 0, 5, 3 }))); // expected: [0, 0, 0]
+
+        System.out.println(Arrays.toString(solution.distance(
+                new int[] { 7 }))); // expected: [0]
+
+        System.out.println(Arrays.toString(solution.distance(
+                new int[] { 4, 4, 4, 4 }))); // expected: [6, 4, 4, 6]
+
+        System.out.println(Arrays.toString(solution.distance(
+                new int[] { 2, 1, 2, 1, 2 }))); // expected: [6, 2, 4, 2, 6]
+
+        System.out.println(Arrays.toString(solution.distance(
+                new int[] { 10, 20, 10, 30, 10, 20 }))); // expected: [6, 4, 4, 0, 6, 4]
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)
@@ -46,14 +64,20 @@ public class SumOfDistances {
         public long[] distance(int[] nums) {
             int n = nums.length;
             long[] res = new long[n];
-            for (int i = 0; i < n; i++) {
-                long dis = 0;
-                for (int j = 0; j < n; j++) {
-                    if (nums[i] == nums[j] && i != j) {
-                        dis += Math.abs(i - j);
-                    }
-                }
-                res[i] = dis;
+            Map<Integer, long[]> stats = new HashMap<>();
+            for (int i = 0; i < nums.length; i++) {
+                long[] state = stats.computeIfAbsent(nums[i], k -> new long[2]);
+                res[i] += state[0] * i - state[1];
+                state[0]++;
+                state[1] += i;
+            }
+
+            stats.clear();
+            for (int i = nums.length - 1; i >= 0; i--) {
+                long[] state = stats.computeIfAbsent(nums[i], k -> new long[2]);
+                res[i] += state[1] - state[0] * i;
+                state[0]++;
+                state[1] += i;
             }
             return res;
         }
