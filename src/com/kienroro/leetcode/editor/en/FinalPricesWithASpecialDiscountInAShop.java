@@ -54,7 +54,9 @@
 
 package com.kienroro.leetcode.editor.en;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 public class FinalPricesWithASpecialDiscountInAShop {
     public static void main(String[] args) {
@@ -68,17 +70,14 @@ public class FinalPricesWithASpecialDiscountInAShop {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[] finalPrices(int[] prices) {
+            Deque<Integer> stack = new ArrayDeque<>();
             int[] res = Arrays.copyOf(prices, prices.length);
-            for (int i = 0; i < prices.length - 1; i++) {
-                res[i] = prices[i];
-                for (int j = i + 1; j < prices.length; j++) {
-                    if (prices[i] > prices[j]) {
-                        res[i] = prices[i] - prices[j];
-                        break;
-                    }
+            for (int i = 0; i < prices.length; i++) {
+                while (!stack.isEmpty() && prices[stack.peek()] >= prices[i]) {
+                    res[stack.pop()] -= prices[i];
                 }
+                stack.push(i);
             }
-            res[prices.length - 1] = prices[prices.length - 1];
             return res;
 
         }

@@ -1,31 +1,31 @@
-<p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in non-decreasing order, return <em>the <strong>minimum integer common</strong> to both arrays</em>. If there is no common integer amongst <code>nums1</code> and <code>nums2</code>, return <code>-1</code>.</p>
+Given two integer arrays `nums1` and `nums2`, sorted in non-decreasing order, return *the **minimum integer common** to both arrays*. If there is no common integer amongst `nums1` and `nums2`, return `-1`.
 
-<p>Note that an integer is said to be <strong>common</strong> to <code>nums1</code> and <code>nums2</code> if both arrays have <strong>at least one</strong> occurrence of that integer.</p>
+Note that an integer is said to be **common** to `nums1` and `nums2` if both arrays have **at least one** occurrence of that integer.
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p>
+## Example 1
 
-<pre>
-<strong>Input:</strong> nums1 = [1,2,3], nums2 = [2,4]
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> The smallest element common to both arrays is 2, so we return 2.
-</pre>
+```
+Input: nums1 = [1,2,3], nums2 = [2,4]
+Output: 2
+Explanation: The smallest element common to both arrays is 2, so we return 2.
+```
 
-<p><strong class="example">Example 2:</strong></p>
+## Example 2
 
-<pre>
-<strong>Input:</strong> nums1 = [1,2,3,6], nums2 = [2,3,4,5]
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> There are two common elements in the array 2 and 3 out of which 2 is the smallest, so 2 is returned.
-</pre>
+```
+Input: nums1 = [1,2,3,6], nums2 = [2,3,4,5]
+Output: 2
+Explanation: There are two common elements in the array 2 and 3 out of which 2 is the smallest, so 2 is returned.
+```
 
-<p>&nbsp;</p> 
-<p><strong>Constraints:</strong></p>
+## Constraints
 
-<ul> 
- <li><code>1 &lt;= nums1.length, nums2.length &lt;= 10<sup>5</sup></code></li> 
- <li><code>1 &lt;= nums1[i], nums2[j] &lt;= 10<sup>9</sup></code></li> 
- <li>Both <code>nums1</code> and <code>nums2</code> are sorted in <strong>non-decreasing</strong> order.</li> 
-</ul>
+- `1 <= nums1.length, nums2.length <= 105`
+- `1 <= nums1[i], nums2[j] <= 109`
+- Both `nums1` and `nums2` are sorted in **non-decreasing** order.
 
-<div><div>Related Topics</div><div><li>Array</li><li>Hash Table</li><li>Two Pointers</li><li>Binary Search</li></div></div><br><div><li>👍 1238</li><li>👎 43</li></div>
+Related Topics
+
+ArrayHash TableTwo PointersBinary Search
+
+👍 1238👎 43
