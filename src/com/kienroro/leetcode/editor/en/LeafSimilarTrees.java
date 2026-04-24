@@ -112,6 +112,7 @@ public class LeafSimilarTrees {
                 outer.new TreeNode(3));
         System.out.println(solution.leafSimilar(sampleLeafTree1, sampleLeafTree2)); // expected: false
 
+        Integer.parse
     }
 
     public class TreeNode {
