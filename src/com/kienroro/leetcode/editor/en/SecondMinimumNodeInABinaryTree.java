@@ -28,7 +28,9 @@
 
 package com.kienroro.leetcode.editor.en;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class SecondMinimumNodeInABinaryTree {
@@ -79,26 +81,35 @@ public class SecondMinimumNodeInABinaryTree {
      * }
      * }
      */
+
     class Solution {
         public int findSecondMinimumValue(TreeNode root) {
-            List<Integer> unquieOrders = new ArrayList<>();
-            inorderTravel(root, unquieOrders);
-            unquieOrders.sort(null);
-
-            return unquieOrders.size() > 1 ? unquieOrders.get(1) : -1;
-
+            return dfs(root, root.val);
         }
 
-        public void inorderTravel(TreeNode node, List<Integer> unquieOrders) {
+        public int dfs(TreeNode node, int minValue) {
             if (node == null) {
-                return;
+                return -1;
             }
-            inorderTravel(node.left, unquieOrders);
-            if (!unquieOrders.contains(node.val)) {
-                unquieOrders.add(node.val);
+
+            if (node.val > minValue) {
+                return node.val;
             }
-            inorderTravel(node.right, unquieOrders);
+
+            int left = dfs(node.left, minValue);
+            int right = dfs(node.right, minValue);
+
+            if (left == -1) {
+                return right;
+            }
+
+            if (right == -1) {
+                return left;
+            }
+
+            return Math.min(right, left);
         }
+
     }
     // leetcode submit region end(Prohibit modification and deletion)
 }
