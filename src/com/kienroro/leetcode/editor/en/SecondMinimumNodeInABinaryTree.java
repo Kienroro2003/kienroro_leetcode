@@ -82,32 +82,37 @@ public class SecondMinimumNodeInABinaryTree {
      * }
      */
 
+    class State {
+        TreeNode node;
+        int minValue;
+
+        public State(TreeNode node, int minValue) {
+            this.node = node;
+            this.minValue = minValue;
+        }
+    }
+
     class Solution {
         public int findSecondMinimumValue(TreeNode root) {
-            return dfs(root, root.val);
+            return dfs(new State(root, root.val));
         }
 
-        public int dfs(TreeNode node, int minValue) {
-            if (node == null) {
-                return -1;
+        public int dfs(State state) {
+            Deque<State> stack = new ArrayDeque<>();
+            stack.push(new State(state.node.right, state.minValue));
+            stack.push(new State(state.node.left, state.minValue));
+
+            while (!stack.isEmpty()) {
+                State top = stack.pop();
+
+                if (top.node.left != null) {
+                    stack.push(new State(top.node.right, top.minValue));
+                    stack.push(new State(top.node.left, top.minValue));
+                }
+
             }
 
-            if (node.val > minValue) {
-                return node.val;
-            }
-
-            int left = dfs(node.left, minValue);
-            int right = dfs(node.right, minValue);
-
-            if (left == -1) {
-                return right;
-            }
-
-            if (right == -1) {
-                return left;
-            }
-
-            return Math.min(right, left);
+            return 0;
         }
 
     }
