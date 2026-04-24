@@ -59,8 +59,12 @@ public class ReverseBits {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int reverseBits(int n) {
-
-            return convertBinaryStringToInt(convertIntToReverseBinaryString(n));
+            int ans = 0;
+            for (int i = 0; i < 32; i++) {
+                ans = ans << 1 | (n & 1);
+                n >>>= 1;
+            }
+            return ans;
         }
 
         public String convertIntToReverseBinaryString(int num) {
