@@ -30,6 +30,9 @@
 
 package com.kienroro.leetcode.editor.en;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinaryWatch {
     public static void main(String[] args) {
         BinaryWatch outer = new BinaryWatch();
@@ -43,11 +46,30 @@ public class BinaryWatch {
         // System.out.println(java.util.Arrays.toString(result));
     }
 
-    //leetcode submit region begin(Prohibit modification and deletion)
+    // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public List<String> readBinaryWatch(int turnedOn) {
-    
+            List<String> ans = new ArrayList<>();
+            int hour = 0;
+            int minute = 0;
+            for (int i = 0; i < 60 * 12; i++) {
+                hour = i / 60;
+                minute = i % 60;
+                if (countBits(hour) + countBits(minute) == turnedOn) {
+                    ans.add("%d:%02d".formatted(hour, minute));
+                }
+            }
+            return ans;
+        }
+
+        public int countBits(int num) {
+            int ans = 0;
+            while (num != 0) {
+                ans++;
+                num &= (num - 1);
+            }
+            return ans;
         }
     }
-    //leetcode submit region end(Prohibit modification and deletion)
+    // leetcode submit region end(Prohibit modification and deletion)
 }
