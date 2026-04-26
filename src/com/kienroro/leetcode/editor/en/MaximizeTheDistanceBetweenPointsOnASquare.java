@@ -56,9 +56,10 @@
 
 package com.kienroro.leetcode.editor.en;
 
-import java.util.ArrayList;
+import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Comparator;
+import java.util.Deque;
 
 public class MaximizeTheDistanceBetweenPointsOnASquare {
     public static void main(String[] args) {
@@ -85,63 +86,100 @@ public class MaximizeTheDistanceBetweenPointsOnASquare {
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)
-
-    class Point {
-        int x;
-        int y;
-
-        Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
     class Solution {
         public int maxDistance(int side, int[][] points, int k) {
-            List<int[][]> listPointK = combinations(points, k);
-            int ans = Integer.MIN_VALUE;
-            for (int[][] array : listPointK) {
-                int minDistance = Arrays.stream(calDistances(array)).min().getAsInt();
-                if (minDistance > ans) {
-                    ans = minDistance;
+            int[][] ordered = getOrderedPoints(side, points);
+            int left = 0;
+            int right = side;
+
+            while (left < right) {
+                int mid = left + (right - left + 1) / 2;
+                if (canPick(ordered, k, mid)) {
+                    left = mid;
+                } else {
+                    right = mid - 1;
                 }
             }
-            return ans;
+
+            return left;
         }
 
-        public int[] calDistances(int[][] array) {
-            List<int[][]> combination2 = combinations(array, 2);
-            int[] ans = new int[combination2.size()];
-            for (int i = 0; i < ans.length; i++) {
-                Point p1 = new Point(combination2.get(i)[0][0], combination2.get(i)[0][1]);
-                Point p2 = new Point(combination2.get(i)[1][0], combination2.get(i)[1][1]);
-                ans[i] = calManhattanDistance(p1, p2);
+        private int[][] getOrderedPoints(int side, int[][] points) {
+            Integer[] order = new Integer[points.length];
+            Arrays.setAll(order, i -> i);
+            Arrays.sort(order, Comparator.comparingLong(i -> toPerimeterPosition(side, points[i][0], points[i][1])));
+
+            int[][] ordered = new int[points.length][2];
+            for (int i = 0; i < points.length; i++) {
+                ordered[i] = points[order[i]];
             }
-            return ans;
+            return ordered;
         }
 
-        public List<int[][]> combinations(int[][] nums, int k) {
-            List<int[][]> result = new ArrayList<>();
-            backtrack(nums, k, 0, new int[k][2], 0, result);
-            return result;
-        }
-
-        private void backtrack(int[][] nums, int k, int start,
-                int[][] current, int size,
-                List<int[][]> result) {
-            if (size == k) {
-                result.add(Arrays.copyOf(current, k));
-                return;
+        private long toPerimeterPosition(int side, int x, int y) {
+            if (y == 0) {
+                return x;
             }
-
-            for (int i = start; i <= nums.length - (k - size); i++) {
-                current[size] = nums[i];
-                backtrack(nums, k, i + 1, current, size + 1, result);
+            if (x == side) {
+                return (long) side + y;
             }
+            if (y == side) {
+                return 3L * side - x;
+            }
+            return 4L * side - y;
         }
 
-        public int calManhattanDistance(Point p1, Point p2) {
-            return Math.abs(p1.x - p2.x) + Math.abs(p1.y - p2.y);
+        private boolean canPick(int[][] ordered, int k, int distance) {
+            Deque<Sequence> deque = new ArrayDeque<>();
+            deque.addLast(new Sequence(
+                    ordered[0][0],
+                    ordered[0][1],
+                    ordered[0][0],
+                    ordered[0][1],
+                    1));
+
+            int maxLength = 1;
+            for (int i = 1; i < ordered.length; i++) {
+                int x = ordered[i][0];
+                int y = ordered[i][1];
+                int startX = x;
+                int startY = y;
+                int length = 1;
+
+                while (!deque.isEmpty() && manhattan(x, y, deque.peekFirst().endX, deque.peekFirst().endY) >= distance) {
+                    Sequence previous = deque.pollFirst();
+                    if (manhattan(x, y, previous.startX, previous.startY) >= distance
+                            && previous.length + 1 >= length) {
+                        startX = previous.startX;
+                        startY = previous.startY;
+                        length = previous.length + 1;
+                        maxLength = Math.max(maxLength, length);
+                    }
+                }
+
+                deque.addLast(new Sequence(startX, startY, x, y, length));
+            }
+            return maxLength >= k;
+        }
+
+        private int manhattan(int x1, int y1, int x2, int y2) {
+            return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+        }
+
+        private class Sequence {
+            int startX;
+            int startY;
+            int endX;
+            int endY;
+            int length;
+
+            Sequence(int startX, int startY, int endX, int endY, int length) {
+                this.startX = startX;
+                this.startY = startY;
+                this.endX = endX;
+                this.endY = endY;
+                this.length = length;
+            }
         }
     }
     // leetcode submit region end(Prohibit modification and deletion)
