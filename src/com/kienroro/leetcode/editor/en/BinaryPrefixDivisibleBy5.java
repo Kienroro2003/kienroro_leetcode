@@ -48,11 +48,10 @@ public class BinaryPrefixDivisibleBy5 {
     class Solution {
         public List<Boolean> prefixesDivBy5(int[] nums) {
             List<Boolean> ans = new ArrayList<>();
-            BigInteger curr = BigInteger.ZERO;
-            BigInteger five = BigInteger.valueOf(5);
+            int remainder = 0;
             for (int bit : nums) {
-                curr = curr.shiftLeft(1).add(bit == 1 ? BigInteger.ONE : BigInteger.ZERO);
-                ans.add(curr.remainder(five).equals(BigInteger.ZERO));
+                remainder = ((remainder << 1) + bit) % 5;
+                ans.add(remainder == 0);
             }
             return ans;
 
