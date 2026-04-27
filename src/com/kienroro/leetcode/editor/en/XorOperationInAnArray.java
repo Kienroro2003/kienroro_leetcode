@@ -30,24 +30,30 @@ public class XorOperationInAnArray {
         XorOperationInAnArray outer = new XorOperationInAnArray();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(solution.xorOperation(5, 5));
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int xorOperation(int n, int start) {
-            int ans = start;
-            for (int i = 1; i < n; i++) {
-                start += 2;
-                ans ^= start;
-            }
-            return ans;
+            int e = start & 1;
+            int s = start >> 1;
+            int k = xor(s + n - 1) ^ xor(s - 1);
+            return (k << 1) | (n & e);
 
+        }
+
+        public int xor(int x) {
+            if (x % 4 == 0) {
+                return x;
+            }
+            if (x % 4 == 1) {
+                return 1;
+            }
+            if (x % 4 == 2) {
+                return x + 1;
+            }
+            return 0;
         }
     }
     // leetcode submit region end(Prohibit modification and deletion)
