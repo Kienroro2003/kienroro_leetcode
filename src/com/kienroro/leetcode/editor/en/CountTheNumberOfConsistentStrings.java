@@ -47,10 +47,14 @@ public class CountTheNumberOfConsistentStrings {
     class Solution {
         public int countConsistentStrings(String allowed, String[] words) {
             int ans = 0;
+            boolean[] allows = new boolean[26];
+            for (char c : allowed.toCharArray()) {
+                allows[c - 'a'] = true;
+            }
             for (String word : words) {
                 boolean isAllow = true;
                 for (char c : word.toCharArray()) {
-                    if (allowed.indexOf(c) == -1) {
+                    if (!allows[c - 'a']) {
                         isAllow = false;
                         break;
                     }
