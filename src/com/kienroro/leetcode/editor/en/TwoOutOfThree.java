@@ -31,6 +31,7 @@
 package com.kienroro.leetcode.editor.en;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -52,32 +53,23 @@ public class TwoOutOfThree {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+            Set<Integer> set1 = new HashSet<>(Arrays.stream(nums1).boxed().toList());
+            Set<Integer> set2 = new HashSet<>(Arrays.stream(nums2).boxed().toList());
+            Set<Integer> set3 = new HashSet<>(Arrays.stream(nums3).boxed().toList());
             Set<Integer> ans = new HashSet<>();
-            helper(nums1, nums2, nums3, ans);
-            helper(nums2, nums3, nums1, ans);
-            return ans.stream().collect(Collectors.toList());
+            ans.addAll(set1.stream()
+                    .filter(set2::contains)
+                    .collect(Collectors.toSet()));
+            ans.addAll(set1.stream()
+                    .filter(set3::contains)
+                    .collect(Collectors.toSet()));
+            ans.addAll(set2.stream()
+                    .filter(set3::contains)
+                    .collect(Collectors.toSet()));
+            return ans.stream().toList();
+
         }
 
-        public void helper(int[] nums1, int[] nums2, int[] nums3, Set<Integer> ans) {
-            for (int i = 0; i < nums1.length; i++) {
-                boolean isFound = false;
-                for (int j = 0; j < nums2.length; j++) {
-                    if (nums1[i] == nums2[j]) {
-                        isFound = true;
-                        ans.add(nums1[i]);
-                        break;
-                    }
-                }
-                if (!isFound) {
-                    for (int j = 0; j < nums3.length; j++) {
-                        if (nums1[i] == nums3[j]) {
-                            ans.add(nums1[i]);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
     }
     // leetcode submit region end(Prohibit modification and deletion)
 }
