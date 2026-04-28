@@ -58,27 +58,11 @@ public class SumOfAllSubsetXorTotals {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int subsetXORSum(int[] nums) {
-            int mask = 0;
-            int n = nums.length;
-            int ans = 0;
-            while (n-- > 0) {
-                mask = mask << 1 | 1;
+            int or = 0;
+            for (int num : nums) {
+                or |= num;
             }
-            for (int i = 1; i <= mask; i++) {
-                int curr = i;
-                int xor = 0;
-                int j = 0;
-                while (curr != 0) {
-                    if ((curr & 1) == 1) {
-                        xor ^= nums[j];
-                    }
-                    j++;
-                    curr >>= 1;
-                }
-                ans += xor;
-            }
-            return ans;
-
+            return or << (nums.length - 1);
         }
     }
     // leetcode submit region end(Prohibit modification and deletion)
