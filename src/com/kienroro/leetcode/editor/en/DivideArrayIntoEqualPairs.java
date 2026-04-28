@@ -44,12 +44,12 @@ public class DivideArrayIntoEqualPairs {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean divideArray(int[] nums) {
-            Map<Integer, Integer> countNums = new HashMap<>();
+            int[] mask = new int[501];
             for (int num : nums) {
-                countNums.merge(num, 1, Integer::sum);
+                mask[num] ^= num;
             }
-            for (var key : countNums.keySet()) {
-                if (countNums.get(key) % 2 != 0) {
+            for (int x : mask) {
+                if (x != 0) {
                     return false;
                 }
             }
