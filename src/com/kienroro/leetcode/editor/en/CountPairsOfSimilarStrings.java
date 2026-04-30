@@ -39,8 +39,10 @@
 package com.kienroro.leetcode.editor.en;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class CountPairsOfSimilarStrings {
@@ -49,33 +51,31 @@ public class CountPairsOfSimilarStrings {
         Solution solution = outer.new Solution();
 
         System.out.println(new HashSet<>(List.of(1, 2, 3)).equals(new HashSet<>(List.of(3, 2, 1))));
+        for (int i = 0; i < 100; i++) {
+            if ((i & (i - 1)) == 0) {
+                System.out.println(i + " " + Integer.toBinaryString(i));
+            }
+        }
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int similarPairs(String[] words) {
-            List<Set<Character>> uniqueCharSets = new ArrayList<>();
+            Map<Integer, Integer> map = new HashMap<>();
             for (String word : words) {
-                uniqueCharSets.add(toSetChar(word));
-            }
-            int count = 0;
-            for (int i = 0; i < uniqueCharSets.size(); i++) {
-                for (int j = i + 1; j < uniqueCharSets.size(); j++) {
-                    if (uniqueCharSets.get(i).equals(uniqueCharSets.get(j))) {
-                        count++;
-                    }
+                int mask = 0;
+                for (char c : word.toCharArray()) {
+                    mask |= 1 << (c - 'a');
                 }
+                map.merge(mask, 1, Integer::sum);
             }
-            return count;
+            int ans = 0;
+            for (var count : map.values()) {
+                ans += (count * (count - 1)) / 2;
+            }
+            return ans;
         }
 
-        public Set<Character> toSetChar(String s) {
-            Set<Character> set = new HashSet<>();
-            for (char c : s.toCharArray()) {
-                set.add(c);
-            }
-            return set;
-        }
     }
     // leetcode submit region end(Prohibit modification and deletion)
 }
