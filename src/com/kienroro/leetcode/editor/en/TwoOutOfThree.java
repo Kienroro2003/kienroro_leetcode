@@ -42,32 +42,33 @@ public class TwoOutOfThree {
         TwoOutOfThree outer = new TwoOutOfThree();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(solution.twoOutOfThree(new int[]{1, 1, 3, 2}, new int[]{2, 3}, new int[]{3})); // expected: [2, 3]
+        System.out.println(solution.twoOutOfThree(new int[]{3, 1}, new int[]{2, 3}, new int[]{1, 2})); // expected: [1, 2, 3]
+        System.out.println(solution.twoOutOfThree(new int[]{1, 2, 2}, new int[]{4, 3, 3}, new int[]{5})); // expected: []
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
-            Set<Integer> set1 = new HashSet<>(Arrays.stream(nums1).boxed().toList());
-            Set<Integer> set2 = new HashSet<>(Arrays.stream(nums2).boxed().toList());
-            Set<Integer> set3 = new HashSet<>(Arrays.stream(nums3).boxed().toList());
-            Set<Integer> ans = new HashSet<>();
-            ans.addAll(set1.stream()
-                    .filter(set2::contains)
-                    .collect(Collectors.toSet()));
-            ans.addAll(set1.stream()
-                    .filter(set3::contains)
-                    .collect(Collectors.toSet()));
-            ans.addAll(set2.stream()
-                    .filter(set3::contains)
-                    .collect(Collectors.toSet()));
-            return ans.stream().toList();
 
+            List<Integer> ans = new ArrayList<>();
+            int[] mask = new int[101];
+            for (int num : nums1) {
+                mask[num] |= 1;
+            }
+            for (int num : nums2) {
+                mask[num] |= 2;
+            }
+            for (int num : nums3) {
+                mask[num] |= 4;
+            }
+            for (int i = 1; i < mask.length; i++) {
+                int m = mask[i];
+                if ((m & (m - 1)) != 0) {
+                    ans.add(i);
+                }
+            }
+            return ans;
         }
 
     }
