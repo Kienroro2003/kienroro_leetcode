@@ -48,8 +48,8 @@ public class DivideArrayIntoEqualPairs {
             for (int num : nums) {
                 mask[num] ^= num;
             }
-            for (int x : mask) {
-                if (x != 0) {
+            for (int x : nums) {
+                if (mask[x] != 0) {
                     return false;
                 }
             }
