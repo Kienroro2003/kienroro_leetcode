@@ -72,21 +72,20 @@ public class UniqueEmailAddresses {
         }
 
         private String formatEmail(String email) {
-            String localName = getLocalName(email);
-            return removeAndIngnoreAfterPlus(removeDot(localName)) + email.substring(email.indexOf("@"));
+            StringBuilder localNameBuilder = new StringBuilder();
+            for (var c : email.toCharArray()) {
+                if (c == '.') {
+                    continue;
+                }
+                if (c == '+' || c == '@') {
+                    break;
+                }
+                localNameBuilder.append(c);
+            }
+            return localNameBuilder.toString() + email.substring(email.indexOf("@"));
+
         }
 
-        private String getLocalName(String email) {
-            return email.split("@")[0];
-        }
-
-        private String removeDot(String name) {
-            return name.replace(".", "");
-        }
-
-        private String removeAndIngnoreAfterPlus(String name) {
-            return name.substring(0, name.indexOf("+") != -1 ? name.indexOf("+") : name.length());
-        }
     }
     // leetcode submit region end(Prohibit modification and deletion)
 }
