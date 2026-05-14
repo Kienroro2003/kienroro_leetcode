@@ -55,7 +55,6 @@ public class ValidPalindrome {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean isPalindrome(String s) {
-            s = s.toLowerCase();
             int head = 0;
             int tail = s.length() - 1;
             while (head < tail) {
@@ -65,7 +64,7 @@ public class ValidPalindrome {
                 while (tail > head && !Character.isLetterOrDigit(s.charAt(tail))) {
                     tail--;
                 }
-                if (s.charAt(head) != s.charAt(tail)) {
+                if (Character.toLowerCase(s.charAt(head)) != Character.toLowerCase(s.charAt(tail))) {
                     return false;
                 }
                 head++;
