@@ -42,21 +42,23 @@ public class CountBinarySubstrings {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int countBinarySubstrings(String s) {
-            int[] group = new int[s.length()];
-            int write = 0;
+            int curr = 1;
+            int prev = 0;
+            int ans = 0;
             int j = 0;
-            for (int i = 0; i < s.length(); i++) {
-                if (s.charAt(write) == s.charAt(i)) {
-                    group[j]++;
+            for (int i = 1; i < s.length(); i++) {
+                if (s.charAt(j) == s.charAt(i)) {
+                    curr++;
                 } else {
-                    write = i;
-                    group[++j]++;
+                    if (prev != 0) {
+                        ans += Math.min(prev, curr);
+                    }
+                    prev = curr;
+                    j = i;
+                    curr = 1;
                 }
             }
-            int ans = 0;
-            for (int i = 0; i < group.length - 1; i++) {
-                ans += Math.min(group[i], group[i + 1]);
-            }
+            ans += Math.min(prev, curr);
             return ans;
         }
     }
