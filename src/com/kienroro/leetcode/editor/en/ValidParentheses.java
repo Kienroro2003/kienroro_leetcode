@@ -90,26 +90,21 @@ public class ValidParentheses {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean isValid(String s) {
-            Deque<Character> stack = new ArrayDeque<>();
-            String openingBrackets = "([{";
-            String closingBrackets = ")]}";
+            Deque<Character> expectedClosings = new ArrayDeque<>();
+
             for (char c : s.toCharArray()) {
-                if (openingBrackets.indexOf(c) != -1) {
-                    stack.push(c);
-                    continue;
-                }
-                if (closingBrackets.indexOf(c) != -1) {
-                    if (stack.isEmpty()) {
-                        return false;
-                    }
-                    char top = stack.pop();
-                    if (openingBrackets.indexOf(top) != closingBrackets.indexOf(c)) {
-                        return false;
-                    }
+                if (c == '(') {
+                    expectedClosings.push(')');
+                } else if (c == '[') {
+                    expectedClosings.push(']');
+                } else if (c == '{') {
+                    expectedClosings.push('}');
+                } else if (expectedClosings.isEmpty() || expectedClosings.pop() != c) {
+                    return false;
                 }
             }
-            return stack.isEmpty();
 
+            return expectedClosings.isEmpty();
         }
     }
     // leetcode submit region end(Prohibit modification and deletion)
