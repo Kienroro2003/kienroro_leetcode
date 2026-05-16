@@ -23,8 +23,6 @@
 
 package com.kienroro.leetcode.editor.en;
 
-import java.util.Arrays;
-
 public class CountBinarySubstrings {
     public static void main(String[] args) {
         CountBinarySubstrings outer = new CountBinarySubstrings();
@@ -42,24 +40,21 @@ public class CountBinarySubstrings {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int countBinarySubstrings(String s) {
-            int curr = 1;
-            int prev = 0;
-            int ans = 0;
-            int j = 0;
+            int previousRun = 0;
+            int currentRun = 1;
+            int total = 0;
+
             for (int i = 1; i < s.length(); i++) {
-                if (s.charAt(j) == s.charAt(i)) {
-                    curr++;
+                if (s.charAt(i) == s.charAt(i - 1)) {
+                    currentRun++;
                 } else {
-                    if (prev != 0) {
-                        ans += Math.min(prev, curr);
-                    }
-                    prev = curr;
-                    j = i;
-                    curr = 1;
+                    total += Math.min(previousRun, currentRun);
+                    previousRun = currentRun;
+                    currentRun = 1;
                 }
             }
-            ans += Math.min(prev, curr);
-            return ans;
+
+            return total + Math.min(previousRun, currentRun);
         }
     }
     // leetcode submit region end(Prohibit modification and deletion)
