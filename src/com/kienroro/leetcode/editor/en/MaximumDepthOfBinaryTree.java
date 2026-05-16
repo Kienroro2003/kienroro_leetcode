@@ -24,12 +24,43 @@ public class MaximumDepthOfBinaryTree {
         MaximumDepthOfBinaryTree outer = new MaximumDepthOfBinaryTree();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(solution.maxDepth(buildTree(outer, new Integer[] { 3, 9, 20, null, null, 15, 7 }))); // expected:
+                                                                                                                // 3
+        System.out.println(solution.maxDepth(buildTree(outer, new Integer[] { 1, null, 2 }))); // expected: 2
+        System.out.println(solution.maxDepth(buildTree(outer, new Integer[] {}))); // expected: 0
+        System.out.println(solution.maxDepth(buildTree(outer, new Integer[] { 1 }))); // expected: 1
+        System.out.println(solution.maxDepth(buildTree(outer, new Integer[] { 1, 2, null, 3, null, 4 }))); // expected:
+                                                                                                           // 4
+        System.out.println(solution.maxDepth(buildTree(outer, new Integer[] { 1, 2, 3, 4, 5 }))); // expected: 3
+    }
+
+    private static TreeNode buildTree(MaximumDepthOfBinaryTree outer, Integer[] values) {
+        if (values.length == 0 || values[0] == null) {
+            return null;
+        }
+
+        TreeNode root = outer.new TreeNode(values[0]);
+        java.util.Queue<TreeNode> queue = new java.util.ArrayDeque<>();
+        queue.add(root);
+
+        int i = 1;
+        while (!queue.isEmpty() && i < values.length) {
+            TreeNode node = queue.remove();
+
+            if (i < values.length && values[i] != null) {
+                node.left = outer.new TreeNode(values[i]);
+                queue.add(node.left);
+            }
+            i++;
+
+            if (i < values.length && values[i] != null) {
+                node.right = outer.new TreeNode(values[i]);
+                queue.add(node.right);
+            }
+            i++;
+        }
+
+        return root;
     }
 
     public class TreeNode {
@@ -51,8 +82,7 @@ public class MaximumDepthOfBinaryTree {
         }
     }
 
-
-    //leetcode submit region begin(Prohibit modification and deletion)
+    // leetcode submit region begin(Prohibit modification and deletion)
 
     /**
      * Definition for a binary tree node.
@@ -71,9 +101,12 @@ public class MaximumDepthOfBinaryTree {
      */
     class Solution {
         public int maxDepth(TreeNode root) {
-            return 0;
+            if (root == null) {
+                return 0;
+            }
+            return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 
         }
     }
-    //leetcode submit region end(Prohibit modification and deletion)
+    // leetcode submit region end(Prohibit modification and deletion)
 }
