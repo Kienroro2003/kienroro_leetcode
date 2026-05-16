@@ -48,12 +48,8 @@ public class ReverseBits {
         ReverseBits outer = new ReverseBits();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(solution.reverseBits(43261596)); // expected: 964176192
+        System.out.println(solution.reverseBits(0)); // expected: 0
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)

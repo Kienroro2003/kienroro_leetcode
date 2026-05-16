@@ -29,12 +29,8 @@ public class NumberComplement {
         NumberComplement outer = new NumberComplement();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(solution.findComplement(5)); // expected: 2
+        System.out.println(solution.findComplement(1)); // expected: 0
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)

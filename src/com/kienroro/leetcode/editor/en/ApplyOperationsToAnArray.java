@@ -85,6 +85,8 @@ public class ApplyOperationsToAnArray {
 
             return nums;
         }
+
     }
+
     // leetcode submit region end(Prohibit modification and deletion)
 }

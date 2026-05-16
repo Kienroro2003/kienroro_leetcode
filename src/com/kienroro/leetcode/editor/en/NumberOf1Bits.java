@@ -43,12 +43,8 @@ public class NumberOf1Bits {
         NumberOf1Bits outer = new NumberOf1Bits();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(solution.hammingWeight(11)); // expected: 3
+        System.out.println(solution.hammingWeight(128)); // expected: 1
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)

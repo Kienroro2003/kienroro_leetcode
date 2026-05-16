@@ -43,12 +43,8 @@ public class NumberOfEvenAndOddBits {
         NumberOfEvenAndOddBits outer = new NumberOfEvenAndOddBits();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(java.util.Arrays.toString(solution.evenOddBit(50))); // expected: [1, 2]
+        System.out.println(java.util.Arrays.toString(solution.evenOddBit(1))); // expected: [1, 0]
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)

@@ -31,12 +31,8 @@ public class DecodeXoredArray {
         DecodeXoredArray outer = new DecodeXoredArray();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(java.util.Arrays.toString(solution.decode(new int[] { 1, 2, 3 }, 1))); // expected: [1, 0, 2, 1]
+        System.out.println(java.util.Arrays.toString(solution.decode(new int[] { 0, 0, 0 }, 7))); // expected: [7, 7, 7, 7]
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)

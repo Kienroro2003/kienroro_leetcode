@@ -32,12 +32,8 @@ public class PowerOfTwo {
         PowerOfTwo outer = new PowerOfTwo();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(solution.isPowerOfTwo(16)); // expected: true
+        System.out.println(solution.isPowerOfTwo(0)); // expected: false
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)

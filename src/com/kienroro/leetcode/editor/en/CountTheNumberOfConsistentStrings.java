@@ -35,12 +35,8 @@ public class CountTheNumberOfConsistentStrings {
         CountTheNumberOfConsistentStrings outer = new CountTheNumberOfConsistentStrings();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        // Example:
-        // int[] nums = {2, 7, 11, 15};
-        // int target = 9;
-        // int[] result = solution.twoSum(nums, target);
-        // System.out.println(java.util.Arrays.toString(result));
+        System.out.println(solution.countConsistentStrings("ab", new String[] { "ad", "bd", "aaab", "baa", "badab" })); // expected: 2
+        System.out.println(solution.countConsistentStrings("ab", new String[] { "a", "b", "ab", "abc", "c" })); // expected: 3
     }
 
     // leetcode submit region begin(Prohibit modification and deletion)
