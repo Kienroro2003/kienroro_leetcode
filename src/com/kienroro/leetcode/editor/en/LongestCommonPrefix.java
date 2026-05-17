@@ -21,8 +21,6 @@
 
 package com.kienroro.leetcode.editor.en;
 
-import java.util.Arrays;
-
 public class LongestCommonPrefix {
     public static void main(String[] args) {
         LongestCommonPrefix outer = new LongestCommonPrefix();
@@ -121,19 +119,23 @@ public class LongestCommonPrefix {
 
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        private static final int ALPHABET_SIZE = 26;
+
         class TrieNode {
-            TrieNode[] children = new TrieNode[26];
+            TrieNode[] children = new TrieNode[ALPHABET_SIZE];
             boolean isEndOfWord;
+            int childCount;
+            int onlyChildIndex;
         }
 
-        TrieNode root = new TrieNode();
-
-        public void insert(String word) {
+        private void insert(TrieNode root, String word) {
             TrieNode node = root;
             for (char c : word.toCharArray()) {
                 int index = c - 'a';
                 if (node.children[index] == null) {
                     node.children[index] = new TrieNode();
+                    node.childCount++;
+                    node.onlyChildIndex = index;
                 }
                 node = node.children[index];
             }
@@ -141,27 +143,17 @@ public class LongestCommonPrefix {
         }
 
         public String longestCommonPrefix(String[] strs) {
-            this.root = new TrieNode();
+            TrieNode root = new TrieNode();
             for (String str : strs) {
-                insert(str);
+                insert(root, str);
             }
 
-            TrieNode node = this.root;
+            TrieNode node = root;
             StringBuilder ansBuilder = new StringBuilder();
-            while (!node.isEndOfWord) {
-                int count = 0;
-                int j = 0;
-                for (int i = 0; i < node.children.length; i++) {
-                    if (node.children[i] == null)
-                        continue;
-                    count++;
-                    j = i;
-                }
-                if (count != 1) {
-                    return ansBuilder.toString();
-                }
-                ansBuilder.append((char) ('a' + j));
-                node = node.children[j];
+            while (!node.isEndOfWord && node.childCount == 1) {
+                int index = node.onlyChildIndex;
+                ansBuilder.append((char) ('a' + index));
+                node = node.children[index];
             }
             return ansBuilder.toString();
         }
