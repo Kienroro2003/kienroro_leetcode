@@ -47,6 +47,16 @@ public class GuessNumberHigherOrLower {
         // System.out.println(java.util.Arrays.toString(result));
     }
 
+    public class GuessGame {
+        // This is a placeholder for the guess API.
+        // In the actual implementation, this method will be provided by the system.
+        public int guess(int num) {
+            // Placeholder implementation. The actual implementation will return -1, 0, or 1
+            // based on the picked number.
+            return 0;
+        }
+    }
+
     // leetcode submit region begin(Prohibit modification and deletion)
     /**
      * Forward declaration of guess API.
