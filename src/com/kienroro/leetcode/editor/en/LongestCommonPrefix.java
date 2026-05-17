@@ -21,6 +21,8 @@
 
 package com.kienroro.leetcode.editor.en;
 
+import java.util.Arrays;
+
 public class LongestCommonPrefix {
     public static void main(String[] args) {
         LongestCommonPrefix outer = new LongestCommonPrefix();
@@ -119,54 +121,49 @@ public class LongestCommonPrefix {
 
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        class Trie {
-            class TrieNode {
-                TrieNode[] children = new TrieNode[26];
-                boolean isEndOfWord;
-            }
+        class TrieNode {
+            TrieNode[] children = new TrieNode[26];
+            boolean isEndOfWord;
+        }
 
-            TrieNode root;
+        TrieNode root = new TrieNode();
 
-            public Trie() {
-                this.root = new TrieNode();
-            }
-
-            public void insert(String word) {
-                TrieNode node = root;
-                for (char c : word.toCharArray()) {
-                    int index = c - 'a';
-                    if (node.children[index] == null) {
-                        node.children[index] = new TrieNode();
-                    }
-                    node = node.children[index];
+        public void insert(String word) {
+            TrieNode node = root;
+            for (char c : word.toCharArray()) {
+                int index = c - 'a';
+                if (node.children[index] == null) {
+                    node.children[index] = new TrieNode();
                 }
-                node.isEndOfWord = true;
+                node = node.children[index];
             }
-
+            node.isEndOfWord = true;
         }
 
         public String longestCommonPrefix(String[] strs) {
-            int n = strs.length;
-            StringBuilder ansBuilder = new StringBuilder(strs[0]);
-            int end = ansBuilder.length();
-            for (int i = 1; i < n; i++) {
-                if (strs[i].isEmpty()) {
-                    return "";
-                }
-                StringBuilder builder = new StringBuilder(strs[i]);
-                for (int j = 0; j < ansBuilder.length() && j < builder.length(); j++) {
-                    if (ansBuilder.charAt(j) != builder.charAt(j)) {
-                        end = j;
-                        break;
-                    }
-                    end = j + 1;
+            this.root = new TrieNode();
+            for (String str : strs) {
+                insert(str);
+            }
 
+            TrieNode node = this.root;
+            StringBuilder ansBuilder = new StringBuilder();
+            while (!node.isEndOfWord) {
+                int count = 0;
+                int j = 0;
+                for (int i = 0; i < node.children.length; i++) {
+                    if (node.children[i] == null)
+                        continue;
+                    count++;
+                    j = i;
                 }
-                ansBuilder.delete(end, ansBuilder.length());
-
+                if (count != 1) {
+                    return ansBuilder.toString();
+                }
+                ansBuilder.append((char) ('a' + j));
+                node = node.children[j];
             }
             return ansBuilder.toString();
-
         }
     }
     // leetcode submit region end(Prohibit modification and deletion)
