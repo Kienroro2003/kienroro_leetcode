@@ -28,7 +28,9 @@
 
 package com.kienroro.leetcode.editor.en;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class SecondMinimumNodeInABinaryTree {
@@ -79,26 +81,40 @@ public class SecondMinimumNodeInABinaryTree {
      * }
      * }
      */
+
+    class State {
+        TreeNode node;
+        int minValue;
+
+        public State(TreeNode node, int minValue) {
+            this.node = node;
+            this.minValue = minValue;
+        }
+    }
+
     class Solution {
         public int findSecondMinimumValue(TreeNode root) {
-            List<Integer> unquieOrders = new ArrayList<>();
-            inorderTravel(root, unquieOrders);
-            unquieOrders.sort(null);
-
-            return unquieOrders.size() > 1 ? unquieOrders.get(1) : -1;
-
+            return dfs(new State(root, root.val));
         }
 
-        public void inorderTravel(TreeNode node, List<Integer> unquieOrders) {
-            if (node == null) {
-                return;
+        public int dfs(State state) {
+            Deque<State> stack = new ArrayDeque<>();
+            stack.push(new State(state.node.right, state.minValue));
+            stack.push(new State(state.node.left, state.minValue));
+
+            while (!stack.isEmpty()) {
+                State top = stack.pop();
+
+                if (top.node.left != null) {
+                    stack.push(new State(top.node.right, top.minValue));
+                    stack.push(new State(top.node.left, top.minValue));
+                }
+
             }
-            inorderTravel(node.left, unquieOrders);
-            if (!unquieOrders.contains(node.val)) {
-                unquieOrders.add(node.val);
-            }
-            inorderTravel(node.right, unquieOrders);
+
+            return 0;
         }
+
     }
     // leetcode submit region end(Prohibit modification and deletion)
 }

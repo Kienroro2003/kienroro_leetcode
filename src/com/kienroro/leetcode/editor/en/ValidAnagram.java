@@ -43,9 +43,21 @@ public class ValidAnagram {
         ValidAnagram outer = new ValidAnagram();
         Solution solution = outer.new Solution();
 
-        // TODO: Setup local test data here.
-        System.out.println(solution.isAnagram("anagram", "nagaram"));
-        System.out.println(solution.isAnagram("rat", "car"));
+        // Example 1
+        System.out.println("Test 1: " + solution.isAnagram("anagram", "nagaram") + " (Expected: true)");
+
+        // Example 2
+        System.out.println("Test 2: " + solution.isAnagram("rat", "car") + " (Expected: false)");
+
+        // Test 3: Khác độ dài
+        System.out.println("Test 3: " + solution.isAnagram("a", "ab") + " (Expected: false)");
+
+        // Test 4: Giống ký tự nhưng khác số lượng
+        System.out.println("Test 4: " + solution.isAnagram("aabb", "abab") + " (Expected: true)");
+        System.out.println("Test 5: " + solution.isAnagram("aabb", "aaab") + " (Expected: false)");
+
+        // Test 6: Chuỗi rỗng (nếu ràng buộc cho phép, mặc dù đề bài ghi >= 1)
+        // System.out.println("Test 6: " + solution.isAnagram("", "") + " (Expected: true)");
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)

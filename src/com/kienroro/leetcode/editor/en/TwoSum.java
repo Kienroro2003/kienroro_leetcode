@@ -46,7 +46,6 @@
 //
 // Related Topics Array Hash Table 👍 68664 👎 2569
 
-
 package com.kienroro.leetcode.editor.en;
 
 import java.util.Arrays;
@@ -58,21 +57,21 @@ public class TwoSum {
         TwoSum outer = new TwoSum();
         Solution solution = outer.new Solution();
 
-        int[] nums = {2, 7, 11, 15};
+        int[] nums = { 2, 7, 11, 15 };
         int target = 9;
         int[] result = solution.twoSum(nums, target);
 
         System.out.println(Arrays.toString(result));
     }
 
-    //leetcode submit region begin(Prohibit modification and deletion)
+    // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[] twoSum(int[] nums, int target) {
             Map<Integer, Integer> map = new HashMap<>();
             for (int i = 0; i < nums.length; i++) {
                 int numNeed = target - nums[i];
                 if (map.containsKey(numNeed)) {
-                    return new int[]{map.get(numNeed), i};
+                    return new int[] { map.get(numNeed), i };
                 } else {
                     map.put(nums[i], i);
                 }
@@ -80,6 +79,6 @@ public class TwoSum {
             return null;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    // leetcode submit region end(Prohibit modification and deletion)
 
 }
